@@ -1,0 +1,7 @@
+## Interface: 70000
+## Title: |cff44ABDBHam|rUI_Raid
+## Notes: Custom Blizzard default UI
+## Version: 0.2.1
+## Author: LordHam
+
+core.lua
