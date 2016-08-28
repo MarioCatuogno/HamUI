@@ -11,3 +11,6 @@ World of Warcraft custom UI
 
 ### Shaman
 ##### Elemental
+##### Enhancement
+* [Combat (PRD)](http://pastebin.com/MaaA69HE)
+* [Skills (PRD)](http://pastebin.com/rZ6vWV04)
