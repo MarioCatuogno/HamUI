@@ -225,12 +225,3 @@ mail_checker:SetScript("OnEvent", function(this, event, ...)
 		this:UnregisterEvent("MAIL_INBOX_UPDATE")
 	end
 end)
-
--------------------------------------------------------------------------------
-
--- HIDE ORDER HALL BAR
-
-local b = OrderHallCommandBar
-b:UnregisterAllEvents()
-b:HookScript("OnShow", b.Hide)
-b:Hide()
