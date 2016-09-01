@@ -1,6 +1,11 @@
 # HamUI
 World of Warcraft custom UI
 
+## Macros
+
+* [Druid](http://pastebin.com/gS7Ns5A5)
+* [Monk](http://pastebin.com/tsDVs6ik)
+
 ## WeakAuras
 
 ### Monk
