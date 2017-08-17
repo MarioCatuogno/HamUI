@@ -8,11 +8,15 @@ World of Warcraft custom UI
 
 ## WeakAuras
 
+### Auras
+* [Left Auras](https://pastebin.com/sF4BsAVa)
+* [Right Auras](https://pastebin.com/YkDN8n81)
+
 ### Monk
 ##### Windwalker
-* [Combat (PRD)](http://pastebin.com/ZcB0T0s9)
-* [Cooldowns (PRD)](http://pastebin.com/UZaf9uhH)
-* [Skills (PRD)](http://pastebin.com/qBqPHBhP)
+* [Rotation Cooldowns](https://pastebin.com/kNFKwQ7p)
+##### Brewmaster
+* [Rotation Cooldowns](https://pastebin.com/NmwkfLiV)
 
 ### Shaman
 ##### Elemental
