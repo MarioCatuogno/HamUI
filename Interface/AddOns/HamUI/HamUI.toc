@@ -1,0 +1,7 @@
+## Interface: 70200
+## Title: |cff44ABDBHam|rUI
+## Notes: Custom Blizzard default UI
+## Version: 0.2.0
+## Author: LordHam
+
+core.lua
