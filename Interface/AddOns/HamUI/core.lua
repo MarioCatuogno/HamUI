@@ -99,6 +99,12 @@
 --------------------------------------------------------------------------------
 -- CHAT
 --------------------------------------------------------------------------------
+-- Chat style
+ local STRING_STYLE  = "%s|| "
+ local CHANNEL_STYLE = "%d"
+ local PLAYER_STYLE  = "%s"
+-- Lines to scroll on mousewheel
+ local NUM_LINES_TO_SCROLL = 3
 -- Reduce overlay animation
  CHAT_TAB_SHOW_DELAY = 0
  CHAT_TAB_HIDE_DELAY = 0
