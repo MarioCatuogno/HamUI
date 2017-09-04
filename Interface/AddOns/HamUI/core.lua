@@ -111,24 +111,15 @@
  CHAT_FRAME_FADE_TIME = 0
  CHAT_FRAME_FADE_OUT_TIME = 0
 -- Configure more font sizes
- CHAT_FONT_HEIGHTS = {
-  [1] = 8,
-  [2] = 10,
-  [3] = 12,
-  [4] = 14,
-  [5] = 16,
-  [6] = 18,
-  [7] = 20,
- }
+ CHAT_FONT_HEIGHTS = {10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
 -- Chat mousover
  CHAT_FRAME_TAB_SELECTED_MOUSEOVER_ALPHA = 1
  CHAT_FRAME_TAB_SELECTED_NOMOUSE_ALPHA = 0
  CHAT_FRAME_TAB_NORMAL_MOUSEOVER_ALPHA = 0.5
  CHAT_FRAME_TAB_NORMAL_NOMOUSE_ALPHA = 0
 --------------------------------------------------------------------------------
--- RAID
+-- COMBAT TEXT
 --------------------------------------------------------------------------------
--- Remove realm name from raid frames
 --------------------------------------------------------------------------------
 -- COMMANDS
 --------------------------------------------------------------------------------
