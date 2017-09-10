@@ -4,7 +4,8 @@ World of Warcraft custom UI
 ## Macros
 
 * [Druid](http://pastebin.com/gS7Ns5A5)
-* [Monk](http://pastebin.com/tsDVs6ik)
+* [Monk](https://github.com/MarioCatuogno/HamUI/blob/master/Macros/macros_monk.md)
+* [Shaman](https://github.com/MarioCatuogno/HamUI/blob/master/Macros/macros_shaman.md)
 
 ## WeakAuras
 
