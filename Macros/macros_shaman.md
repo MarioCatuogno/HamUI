@@ -12,6 +12,8 @@ Macros for Shaman specializations.
 /cast Lightning Bolt
 ```
 
+## Elemental
+
 ## Enhancement
 ```
 #showtooltip Rockbiter
@@ -48,3 +50,5 @@ Macros for Shaman specializations.
 /startattack
 /cast Crash Lightning
 ```
+
+## Restoration
