@@ -9,15 +9,11 @@ World of Warcraft custom UI
 
 ## WeakAuras
 
-### Auras
-* [Left Auras](https://pastebin.com/sF4BsAVa)
-* [Right Auras](https://pastebin.com/YkDN8n81)
-
 ### Monk
 ##### Windwalker
-* [Rotation Cooldowns](https://pastebin.com/kNFKwQ7p)
-##### Brewmaster
-* [Rotation Cooldowns](https://pastebin.com/NmwkfLiV)
+* [Short Cooldowns](https://github.com/MarioCatuogno/HamUI/blob/master/monk_shortcd.md)
+* [Left Auras](https://github.com/MarioCatuogno/HamUI/blob/master/monk_auraleft.md)
+* [Right Auras](https://github.com/MarioCatuogno/HamUI/blob/master/monk_auraright.md)
 
 ### Shaman
 ##### Elemental
