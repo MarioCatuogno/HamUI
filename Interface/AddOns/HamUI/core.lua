@@ -4,8 +4,33 @@
 -- Set in-game tooltip position
  hooksecurefunc("GameTooltip_SetDefaultAnchor", function (tooltip, parent)
   tooltip:SetOwner(parent, "ANCHOR_NONE");
-  tooltip:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", 10, 40);
+  tooltip:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", 10, 100);
  end)
+ --------------------------------------------------------------------------------
+-- RAID
+--------------------------------------------------------------------------------
+-- Hide server from raid frames
+-- hooksecurefunc("CompactUnitFrame_UpdateName",function(frame)
+--   frame.name:SetText(GetUnitName(frame.unit,true):match("[^-]+"))
+-- end)
+hooksecurefunc("CompactUnitFrame_UpdateName",function(frame)
+	if frame and not frame:IsForbidden() then
+		local frame_name = frame:GetName()
+		if frame_name and frame_name:match("^CompactRaidFrame%d") and frame.unit and frame.name then
+			local unit_name = GetUnitName(frame.unit,true)
+			if unit_name then
+				frame.name:SetText(unit_name:match("[^-]+"))
+			end
+		end
+	end
+end)
+hooksecurefunc("CompactUnitFrame_UpdateName", function(frame)
+  if ShouldShowName(frame) then
+      if frame.optionTable.colorNameBySelection then
+          frame.name:SetText(GetUnitName(frame.unit))
+      end
+  end
+end)
 --------------------------------------------------------------------------------
 -- HIDE FRAMES
 --------------------------------------------------------------------------------
@@ -34,8 +59,30 @@
    PlayerPVPIcon:Hide()
    TargetFrameTextureFramePVPIcon:Hide()
    FocusFrameTextureFramePVPIcon:Hide()
+-- Hide micromenu bar
+   MicroButtonAndBagsBar:Hide()
+   CharacterMicroButton:Hide()
+   SpellbookMicroButton:Hide()
+   TalentMicroButton:Hide()
+   AchievementMicroButton:Hide()
+   QuestLogMicroButton:Hide()
+   GuildMicroButton:Hide()
+   LFDMicroButton:Hide()
+   CollectionsMicroButton:Hide()
+   EJMicroButton:Hide()
+   StoreMicroButton:Hide()
+   hooksecurefunc("UpdateMicroButtons",function(...) if StoreMicroButton then StoreMicroButton:Hide() end end)
   self:SetScript("OnUpdate",nil)
  end)
+-- Fix LUA errors
+  if not AchievementMicroButton_Update then
+   AchievementMicroButton_Update = function() end
+  end
+-- Hide micromenu alerts
+  function MainMenuMicroButton_AreAlertsEffectivelyEnabled()
+   return false;
+--return g_microButtonAlertsEnabled and not next(g_visibleExternalAlerts);
+  end
 --------------------------------------------------------------------------------
 -- TARGET FRAMES
 --------------------------------------------------------------------------------
@@ -96,6 +143,22 @@
  TargetFrameSpellBar:SetPoint("CENTER", TargetFrame, "TOP", -10, 10)
  TargetFrameSpellBar.SetPoint = function() end
  TargetFrameSpellBar:SetScale(1.0)
+-- Hide hotkeys
+ for i=1, 12 do
+   _G["ActionButton"..i.."HotKey"]:SetAlpha(0) -- main bar
+   _G["MultiBarBottomRightButton"..i.."HotKey"]:SetAlpha(0) -- bottom right bar
+   _G["MultiBarBottomLeftButton"..i.."HotKey"]:SetAlpha(0) -- bottom left bar
+   _G["MultiBarRightButton"..i.."HotKey"]:SetAlpha(0) -- right bar
+   _G["MultiBarLeftButton"..i.."HotKey"]:SetAlpha(0) -- left bar
+ end
+-- Hide macro names
+ for i=1, 12 do
+   _G["ActionButton"..i.."Name"]:SetAlpha(0) -- main bar
+   _G["MultiBarBottomRightButton"..i.."Name"]:SetAlpha(0) -- bottom right bar
+   _G["MultiBarBottomLeftButton"..i.."Name"]:SetAlpha(0) -- bottom left bar
+   _G["MultiBarRightButton"..i.."Name"]:SetAlpha(0) -- right bar
+   _G["MultiBarLeftButton"..i.."Name"]:SetAlpha(0) -- left bar
+ end
 --------------------------------------------------------------------------------
 -- CHAT
 --------------------------------------------------------------------------------
@@ -128,3 +191,39 @@
  SLASH_READYCHECK1 = '/rc'
  SlashCmdList["RELOADUI"] = function() ReloadUI() end
  SLASH_RELOADUI1 = '/rl'
+ SlashCmdList["CHECKROLE"] = function() InitiateRolePoll() end
+ SLASH_CHECKROLE1 = '/cr'
+-- Align (eAlign)
+SLASH_EA1 = "/align"
+local f
+SlashCmdList["EA"] = function()
+	if f then
+		f:Hide()
+		f = nil		
+	else
+		f = CreateFrame('Frame', nil, UIParent) 
+		f:SetAllPoints(UIParent)
+		local w = GetScreenWidth() / 64
+		local h = GetScreenHeight() / 36
+		for i = 0, 64 do
+			local t = f:CreateTexture(nil, 'BACKGROUND')
+			if i == 32 then
+				t:SetColorTexture(1, 1, 0, 0.5)
+			else
+				t:SetColorTexture(1, 1, 1, 0.15)
+			end
+			t:SetPoint('TOPLEFT', f, 'TOPLEFT', i * w - 1, 0)
+			t:SetPoint('BOTTOMRIGHT', f, 'BOTTOMLEFT', i * w + 1, 0)
+		end
+		for i = 0, 36 do
+			local t = f:CreateTexture(nil, 'BACKGROUND')
+			if i == 18 then
+				t:SetColorTexture(1, 1, 0, 0.5)
+			else
+				t:SetColorTexture(1, 1, 1, 0.15)
+			end
+			t:SetPoint('TOPLEFT', f, 'TOPLEFT', 0, -i * h + 1)
+			t:SetPoint('BOTTOMRIGHT', f, 'TOPRIGHT', 0, -i * h - 1)
+		end	
+	end
+end
