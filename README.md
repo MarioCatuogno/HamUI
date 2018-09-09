@@ -9,10 +9,10 @@ World of Warcraft custom UI
 
 ## WeakAuras
 
-* [Short Cooldowns](https://github.com/MarioCatuogno/HamUI/blob/master/rotation.md)
-* [Left Auras](https://github.com/MarioCatuogno/HamUI/blob/master/cooldown.md)
-* [Right Auras](https://github.com/MarioCatuogno/HamUI/blob/master/resource.md)
-* [Right Auras](https://github.com/MarioCatuogno/HamUI/blob/master/various.md)
+* [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/rotation.md)
+* [Left Auras: Cooldowns](https://github.com/MarioCatuogno/HamUI/blob/master/cooldown.md)
+* [Right Auras: Resources](https://github.com/MarioCatuogno/HamUI/blob/master/resource.md)
+* [Various](https://github.com/MarioCatuogno/HamUI/blob/master/various.md)
 
 ### Shaman
 ##### Elemental
