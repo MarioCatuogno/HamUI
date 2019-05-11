@@ -14,15 +14,15 @@
 --   frame.name:SetText(GetUnitName(frame.unit,true):match("[^-]+"))
 -- end)
 hooksecurefunc("CompactUnitFrame_UpdateName",function(frame)
-	if frame and not frame:IsForbidden() then
-		local frame_name = frame:GetName()
-		if frame_name and frame_name:match("^CompactRaidFrame%d") and frame.unit and frame.name then
-			local unit_name = GetUnitName(frame.unit,true)
-			if unit_name then
-				frame.name:SetText(unit_name:match("[^-]+"))
-			end
-		end
-	end
+  if frame and not frame:IsForbidden() then
+    local frame_name = frame:GetName()
+    if frame_name and frame_name:match("^CompactRaidFrame%d") and frame.unit and frame.name then
+      local unit_name = GetUnitName(frame.unit,true)
+      if unit_name then
+        frame.name:SetText(unit_name:match("[^-]+"))
+      end
+    end
+  end
 end)
 hooksecurefunc("CompactUnitFrame_UpdateName", function(frame)
   if ShouldShowName(frame) then
@@ -197,33 +197,33 @@ end)
 SLASH_EA1 = "/align"
 local f
 SlashCmdList["EA"] = function()
-	if f then
-		f:Hide()
-		f = nil		
-	else
-		f = CreateFrame('Frame', nil, UIParent) 
-		f:SetAllPoints(UIParent)
-		local w = GetScreenWidth() / 64
-		local h = GetScreenHeight() / 36
-		for i = 0, 64 do
-			local t = f:CreateTexture(nil, 'BACKGROUND')
-			if i == 32 then
-				t:SetColorTexture(1, 1, 0, 0.5)
-			else
-				t:SetColorTexture(1, 1, 1, 0.15)
-			end
-			t:SetPoint('TOPLEFT', f, 'TOPLEFT', i * w - 1, 0)
-			t:SetPoint('BOTTOMRIGHT', f, 'BOTTOMLEFT', i * w + 1, 0)
-		end
-		for i = 0, 36 do
-			local t = f:CreateTexture(nil, 'BACKGROUND')
-			if i == 18 then
-				t:SetColorTexture(1, 1, 0, 0.5)
-			else
-				t:SetColorTexture(1, 1, 1, 0.15)
-			end
-			t:SetPoint('TOPLEFT', f, 'TOPLEFT', 0, -i * h + 1)
-			t:SetPoint('BOTTOMRIGHT', f, 'TOPRIGHT', 0, -i * h - 1)
-		end	
-	end
+  if f then
+    f:Hide()
+    f = nil    
+  else
+    f = CreateFrame('Frame', nil, UIParent) 
+    f:SetAllPoints(UIParent)
+    local w = GetScreenWidth() / 64
+    local h = GetScreenHeight() / 36
+    for i = 0, 64 do
+      local t = f:CreateTexture(nil, 'BACKGROUND')
+      if i == 32 then
+        t:SetColorTexture(1, 1, 0, 0.5)
+      else
+        t:SetColorTexture(1, 1, 1, 0.15)
+      end
+      t:SetPoint('TOPLEFT', f, 'TOPLEFT', i * w - 1, 0)
+      t:SetPoint('BOTTOMRIGHT', f, 'BOTTOMLEFT', i * w + 1, 0)
+    end
+    for i = 0, 36 do
+      local t = f:CreateTexture(nil, 'BACKGROUND')
+      if i == 18 then
+        t:SetColorTexture(1, 1, 0, 0.5)
+      else
+        t:SetColorTexture(1, 1, 1, 0.15)
+      end
+      t:SetPoint('TOPLEFT', f, 'TOPLEFT', 0, -i * h + 1)
+      t:SetPoint('BOTTOMRIGHT', f, 'TOPRIGHT', 0, -i * h - 1)
+    end  
+  end
 end
