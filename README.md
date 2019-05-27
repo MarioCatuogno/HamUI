@@ -14,6 +14,12 @@ World of Warcraft custom UI
 * [Right Auras: Resources](https://github.com/MarioCatuogno/HamUI/blob/master/resource.md)
 * [Various](https://github.com/MarioCatuogno/HamUI/blob/master/various.md)
 
+## WeakAuras - Monk
+
+### Brewmaster
+
+* [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/bm_rotation.md)
+
 ### Shaman
 ##### Elemental
 ##### Enhancement
