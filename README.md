@@ -18,7 +18,9 @@ World of Warcraft custom UI
 
 ### Brewmaster
 
+* [Resources](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/bm_resources.md)
 * [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/bm_rotation.md)
+* [Skills](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/bm_skills.md)
 
 ### Shaman
 ##### Elemental
