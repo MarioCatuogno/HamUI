@@ -9,21 +9,13 @@ World of Warcraft custom UI
 
 ## WeakAuras
 
-* [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/rotation.md)
-* [Left Auras: Cooldowns](https://github.com/MarioCatuogno/HamUI/blob/master/cooldown.md)
-* [Right Auras: Resources](https://github.com/MarioCatuogno/HamUI/blob/master/resource.md)
-* [Various](https://github.com/MarioCatuogno/HamUI/blob/master/various.md)
-
-## WeakAuras - Monk
-
-### Brewmaster
+### Monk - Brewmaster
 
 * [Resources](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/bm_resources.md)
 * [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/bm_rotation.md)
 * [Skills](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/bm_skills.md)
 
-### Shaman
-##### Elemental
-##### Enhancement
+### Shaman - Enhancement
+
 * [Combat (PRD)](http://pastebin.com/MaaA69HE)
 * [Skills (PRD)](http://pastebin.com/rZ6vWV04)
