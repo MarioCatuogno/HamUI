@@ -9,6 +9,10 @@ World of Warcraft custom UI
 
 ## WeakAuras
 
+### Generic
+
+* [Various](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/various.md)
+
 ### Monk - Brewmaster
 
 * [Resources](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/bm_resources.md)
@@ -19,3 +23,4 @@ World of Warcraft custom UI
 
 * [Combat (PRD)](http://pastebin.com/MaaA69HE)
 * [Skills (PRD)](http://pastebin.com/rZ6vWV04)
+
