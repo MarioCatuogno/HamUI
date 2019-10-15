@@ -13,76 +13,76 @@
 -- hooksecurefunc("CompactUnitFrame_UpdateName",function(frame)
 --   frame.name:SetText(GetUnitName(frame.unit,true):match("[^-]+"))
 -- end)
-hooksecurefunc("CompactUnitFrame_UpdateName",function(frame)
-  if frame and not frame:IsForbidden() then
-    local frame_name = frame:GetName()
-    if frame_name and frame_name:match("^CompactRaidFrame%d") and frame.unit and frame.name then
-      local unit_name = GetUnitName(frame.unit,true)
-      if unit_name then
-        frame.name:SetText(unit_name:match("[^-]+"))
-      end
-    end
-  end
-end)
-hooksecurefunc("CompactUnitFrame_UpdateName", function(frame)
-  if ShouldShowName(frame) then
-      if frame.optionTable.colorNameBySelection then
-          frame.name:SetText(GetUnitName(frame.unit))
-      end
-  end
-end)
+--hooksecurefunc("CompactUnitFrame_UpdateName",function(frame)
+--  if frame and not frame:IsForbidden() then
+--    local frame_name = frame:GetName()
+--    if frame_name and frame_name:match("^CompactRaidFrame%d") and frame.unit and frame.name then
+--      local unit_name = GetUnitName(frame.unit,true)
+--      if unit_name then
+--        frame.name:SetText(unit_name:match("[^-]+"))
+--      end
+--    end
+--  end
+--end)
+--hooksecurefunc("CompactUnitFrame_UpdateName", function(frame)
+--  if ShouldShowName(frame) then
+--      if frame.optionTable.colorNameBySelection then
+--          frame.name:SetText(GetUnitName(frame.unit))
+--      end
+--  end
+--end)
 --------------------------------------------------------------------------------
 -- HIDE FRAMES
 --------------------------------------------------------------------------------
--- Create a new frame OnUpdate
- local Frame = CreateFrame("Frame")
-  Frame:SetScript("OnUpdate", function(self,...)
--- Hide flashing for Player, Target and Focus frames
-   PlayerFrameFlash:Hide()
-   TargetFrameFlash:Hide()
-   FocusFrameFlash:Hide()
--- Hide loss of control frames
-   LossOfControlFrame:Hide()
--- Hide target of target frames
-   TargetFrameToTTextureFrameName:Hide()
-   FocusFrameToTTextureFrameName:Hide()
--- Hide minimap zoom-in/zoom-out buttons
-   MinimapZoomIn:Hide()
-   MinimapZoomOut:Hide()
--- Hide group indicator
-   PlayerFrameGroupIndicator:Hide()
--- Hide pet name
-   PetName:Hide()
--- Hide player hit indicator
-   PlayerHitIndicator:Hide()
--- Hide PVP icons
-   PlayerPVPIcon:Hide()
-   TargetFrameTextureFramePVPIcon:Hide()
-   FocusFrameTextureFramePVPIcon:Hide()
--- Hide micromenu bar
-   MicroButtonAndBagsBar:Hide()
-   CharacterMicroButton:Hide()
-   SpellbookMicroButton:Hide()
-   TalentMicroButton:Hide()
-   AchievementMicroButton:Hide()
-   QuestLogMicroButton:Hide()
-   GuildMicroButton:Hide()
-   LFDMicroButton:Hide()
-   CollectionsMicroButton:Hide()
-   EJMicroButton:Hide()
-   StoreMicroButton:Hide()
-   hooksecurefunc("UpdateMicroButtons",function(...) if StoreMicroButton then StoreMicroButton:Hide() end end)
-  self:SetScript("OnUpdate",nil)
- end)
+---- Create a new frame OnUpdate
+-- local Frame = CreateFrame("Frame")
+--  Frame:SetScript("OnUpdate", function(self,...)
+---- Hide flashing for Player, Target and Focus frames
+--   PlayerFrameFlash:Hide()
+--   TargetFrameFlash:Hide()
+--   FocusFrameFlash:Hide()
+---- Hide loss of control frames
+--   LossOfControlFrame:Hide()
+---- Hide target of target frames
+--   TargetFrameToTTextureFrameName:Hide()
+--   FocusFrameToTTextureFrameName:Hide()
+---- Hide minimap zoom-in/zoom-out buttons
+--   MinimapZoomIn:Hide()
+--   MinimapZoomOut:Hide()
+---- Hide group indicator
+--   PlayerFrameGroupIndicator:Hide()
+---- Hide pet name
+--   PetName:Hide()
+---- Hide player hit indicator
+--   PlayerHitIndicator:Hide()
+---- Hide PVP icons
+--   PlayerPVPIcon:Hide()
+--   TargetFrameTextureFramePVPIcon:Hide()
+--   FocusFrameTextureFramePVPIcon:Hide()
+---- Hide micromenu bar
+--   MicroButtonAndBagsBar:Hide()
+--   CharacterMicroButton:Hide()
+--   SpellbookMicroButton:Hide()
+--   TalentMicroButton:Hide()
+--   AchievementMicroButton:Hide()
+--   QuestLogMicroButton:Hide()
+--   GuildMicroButton:Hide()
+--   LFDMicroButton:Hide()
+--   CollectionsMicroButton:Hide()
+--   EJMicroButton:Hide()
+--   StoreMicroButton:Hide()
+--   hooksecurefunc("UpdateMicroButtons",function(...) if StoreMicroButton then StoreMicroButton:Hide() end end)
+--  self:SetScript("OnUpdate",nil)
+-- end)
 -- Fix LUA errors
-  if not AchievementMicroButton_Update then
-   AchievementMicroButton_Update = function() end
-  end
+--  if not AchievementMicroButton_Update then
+--   AchievementMicroButton_Update = function() end
+--  end
 -- Hide micromenu alerts
-  function MainMenuMicroButton_AreAlertsEffectivelyEnabled()
-   return false;
+--  function MainMenuMicroButton_AreAlertsEffectivelyEnabled()
+--   return false;
 --return g_microButtonAlertsEnabled and not next(g_visibleExternalAlerts);
-  end
+--  end
 --------------------------------------------------------------------------------
 -- TARGET FRAMES
 --------------------------------------------------------------------------------
@@ -105,31 +105,31 @@ end)
   self.nameBackground:SetVertexColor(0, 0, 0, 0);
  end)
 -- Class colour frames
- local function colour(statusbar, unit)
-  local _, class, c
-   if UnitIsPlayer(unit) and UnitIsConnected(unit) and unit == statusbar.unit
-   and UnitClass(unit) then
-    _, class = UnitClass(unit)
-    c = CUSTOM_CLASS_COLORS and CUSTOM_CLASS_COLORS[class] or RAID_CLASS_COLORS[class]
-    statusbar:SetStatusBarColor(c.r, c.g, c.b)
-   end
-  end
- hooksecurefunc("UnitFrameHealthBar_Update", colour)
- hooksecurefunc("HealthBar_OnValueChanged", function(self)
-  colour(self, self.unit)
- end)
+-- local function colour(statusbar, unit)
+--  local _, class, c
+--   if UnitIsPlayer(unit) and UnitIsConnected(unit) and unit == statusbar.unit
+--   and UnitClass(unit) then
+--    _, class = UnitClass(unit)
+--    c = CUSTOM_CLASS_COLORS and CUSTOM_CLASS_COLORS[class] or RAID_CLASS_COLORS[class]
+--    statusbar:SetStatusBarColor(c.r, c.g, c.b)
+--   end
+--  end
+-- hooksecurefunc("UnitFrameHealthBar_Update", colour)
+-- hooksecurefunc("HealthBar_OnValueChanged", function(self)
+--  colour(self, self.unit)
+-- end)
 --------------------------------------------------------------------------------
 -- MINIMAP
 --------------------------------------------------------------------------------
--- Enable zoom-in/zoom-out with mouse wheel
- Minimap:EnableMouseWheel(true)
- Minimap:SetScript('OnMouseWheel', function(self, delta)
-  if delta > 0 then
-   Minimap_ZoomIn()
-  else
-   Minimap_ZoomOut()
-  end
- end)
+---- Enable zoom-in/zoom-out with mouse wheel
+-- Minimap:EnableMouseWheel(true)
+-- Minimap:SetScript('OnMouseWheel', function(self, delta)
+--  if delta > 0 then
+--   Minimap_ZoomIn()
+--  else
+--   Minimap_ZoomOut()
+--  end
+-- end)
 --------------------------------------------------------------------------------
 -- CAST BAR
 --------------------------------------------------------------------------------
