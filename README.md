@@ -1,6 +1,10 @@
 # HamUI
 World of Warcraft custom UI
 
+## Details
+
+* [Profile](https://github.com/MarioCatuogno/HamUI/blob/master/Details/details_profile.md)
+
 ## Macros
 
 * [Druid](http://pastebin.com/gS7Ns5A5)
