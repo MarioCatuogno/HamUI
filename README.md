@@ -23,6 +23,10 @@ World of Warcraft custom UI
 * [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/brw_rotation.md)
 * [Skills](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/brw_skills.md)
 
+### Monk - Mistweaver
+
+* [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/msw_rotation.md)
+
 ### Shaman - Enhancement
 
 * [Resources](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/enh_resources.md)
