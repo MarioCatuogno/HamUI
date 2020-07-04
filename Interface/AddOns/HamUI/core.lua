@@ -2,10 +2,10 @@
 -- TOOLTIP
 --------------------------------------------------------------------------------
 -- Set in-game tooltip position
- hooksecurefunc("GameTooltip_SetDefaultAnchor", function (tooltip, parent)
-  tooltip:SetOwner(parent, "ANCHOR_NONE");
-  tooltip:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", 10, 100);
- end)
+-- hooksecurefunc("GameTooltip_SetDefaultAnchor", function (tooltip, parent)
+--  tooltip:SetOwner(parent, "ANCHOR_NONE");
+--  tooltip:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", 10, 100);
+-- end)
  --------------------------------------------------------------------------------
 -- RAID
 --------------------------------------------------------------------------------
@@ -83,27 +83,11 @@
 --   return false;
 --return g_microButtonAlertsEnabled and not next(g_visibleExternalAlerts);
 --  end
---------------------------------------------------------------------------------
--- TARGET FRAMES
---------------------------------------------------------------------------------
--- Set in-game player frame position
- PlayerFrame:ClearAllPoints()
- PlayerFrame:SetPoint("RIGHT", UIParent, "CENTER", -190, -95)
- PlayerFrame.SetPoint = function() end
--- Set in-game target frame position
- TargetFrame:ClearAllPoints()
- TargetFrame:SetPoint("RIGHT", UIParent, "CENTER", 420, -95)
- TargetFrame.SetPoint = function()end
--- Set number of buffs/debuffs for target frame
- TargetFrame.maxBuffs = 0
- TargetFrame.maxDebuffs = 5
- MAX_TARGET_BUFFS = 0
- MAX_TARGET_DEBUFFS = 5
- TargetFrame_UpdateAuras(TargetFrame)
+
 -- Hide names background for frames
- hooksecurefunc("TargetFrame_CheckFaction", function(self)
-  self.nameBackground:SetVertexColor(0, 0, 0, 0);
- end)
+-- hooksecurefunc("TargetFrame_CheckFaction", function(self)
+--  self.nameBackground:SetVertexColor(0, 0, 0, 0);
+-- end)
 -- Class colour frames
 -- local function colour(statusbar, unit)
 --  local _, class, c
