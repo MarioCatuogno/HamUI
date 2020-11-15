@@ -17,21 +17,34 @@ World of Warcraft custom UI
 
 * [Various](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/various.txt)
 
-### Monk - Brewmaster
+### Monk
+
+#### Brewmaster
 
 * [Resources](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/brw_resources.txt)
 * [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/brw_rotation.txt)
 * [Skills](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/brw_skills.txt)
 
-### Monk - Mistweaver
+#### Mistweaver
 
 * [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/msw_rotation.txt)
 
-### Shaman - Elemental
+#### Windwalker
 
+* [Resources](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/ww_resources.txt)
+* [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/ww_rotation.txt)
+
+### Paladin
+
+#### Protection
+* [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/prt_rotation.txt)
+
+### Shaman
+
+#### Elemental
 * [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/ele_rotation.txt)
 
-### Shaman - Enhancement
+#### Enhancement
 
 * [Resources](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/enh_resources.txt)
 * [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/enh_rotation.txt)
