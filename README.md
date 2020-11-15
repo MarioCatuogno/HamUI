@@ -27,6 +27,10 @@ World of Warcraft custom UI
 
 * [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/msw_rotation.txt)
 
+### Shaman - Elemental
+
+* [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/ele_rotation.txt)
+
 ### Shaman - Enhancement
 
 * [Resources](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/enh_resources.txt)
