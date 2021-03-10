@@ -27,7 +27,7 @@ World of Warcraft custom UI
 
 #### Mistweaver
 
-* [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/msw_rotation.txt)
+* [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/mw_rotation.txt)
 
 #### Windwalker
 
