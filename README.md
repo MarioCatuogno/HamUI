@@ -19,20 +19,9 @@ World of Warcraft custom UI
 
 ### Monk
 
-#### Brewmaster
+* [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/monk_rotation.txt)
+* [Skills](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/monk_skills.txt)
 
-* [Resources](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/brw_resources.txt)
-* [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/brw_rotation.txt)
-* [Skills](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/brw_skills.txt)
-
-#### Mistweaver
-
-* [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/mw_rotation.txt)
-
-#### Windwalker
-
-* [Resources](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/ww_resources.txt)
-* [Rotation](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/ww_rotation.txt)
 
 ### Paladin
 
