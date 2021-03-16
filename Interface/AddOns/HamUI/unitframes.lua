@@ -7,11 +7,12 @@ PlayerFrame:SetPoint("RIGHT", UIParent, "CENTER", -190, -95)
 PlayerFrame.SetPoint = function() end
 -- Set in-game target frame position
 TargetFrame:ClearAllPoints()
-TargetFrame:SetPoint("RIGHT", UIParent, "CENTER", 420, -95)
+TargetFrame:SetPoint("LEFT", UIParent, "CENTER", 190, -95)
 TargetFrame.SetPoint = function()end
--- Set number of buffs/debuffs for target frame
+-- Remove buffs and debuffs from player and target frames
+FocusFrame.maxBuffs = 0
+FocusFrame.maxDebuffs  = 0
 TargetFrame.maxBuffs = 0
-TargetFrame.maxDebuffs = 5
-MAX_TARGET_BUFFS = 0
-MAX_TARGET_DEBUFFS = 5
-TargetFrame_UpdateAuras(TargetFrame)
+TargetFrame.maxDebuffs = 0
+PlayerFrame.maxBuffs = 0
+PlayerFrame.maxDebuffs = 0
