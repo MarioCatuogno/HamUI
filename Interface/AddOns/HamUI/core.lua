@@ -51,6 +51,7 @@
     CastingBarFrame:SetPoint("CENTER",UIParent,"CENTER", 0, -130)
     CastingBarFrame.SetPoint = function() end
     CastingBarFrame:SetScale(1.0)
+
   -- Set in-game target cast bar position
     TargetFrameSpellBar:ClearAllPoints()
     TargetFrameSpellBar:SetPoint("CENTER", TargetFrame, "TOP", -10, 10)
@@ -65,15 +66,19 @@
     local STRING_STYLE  = "%s|| "
     local CHANNEL_STYLE = "%d"
     local PLAYER_STYLE  = "%s"
+
   -- Lines to scroll on mousewheel
     local NUM_LINES_TO_SCROLL = 3
+
   -- Reduce overlay animation
     CHAT_TAB_SHOW_DELAY = 0.1
     CHAT_TAB_HIDE_DELAY = 0.1
     CHAT_FRAME_FADE_TIME = 0.1
     CHAT_FRAME_FADE_OUT_TIME = 0.1
+
   -- Configure more font sizes
     CHAT_FONT_HEIGHTS = {10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
+
   -- Chat mousover
     CHAT_FRAME_TAB_SELECTED_MOUSEOVER_ALPHA = 1
     CHAT_FRAME_TAB_SELECTED_NOMOUSE_ALPHA = 0
@@ -117,6 +122,7 @@
     local loadingFrame = CreateFrame("Frame");
     loadingFrame:RegisterEvent("PLAYER_ENTERING_WORLD");
     loadingFrame:SetScript("OnEvent",function()
+
   -- Player frame
       PlayerFrame:ClearAllPoints();
       PlayerFrame:SetPoint("CENTER", UIParent, "CENTER", -250, -145);
@@ -125,7 +131,11 @@
       PlayerFrameFlash:Hide();
       PlayerHitIndicator:Hide();
       PlayerPVPIcon:SetAlpha(0);
+      PlayerFrameRoleIcon:SetAlpha(0);
+      PlayerLeaderIcon:SetAlpha(0);
+      PlayerRestIcon:Hide();
       --PlayerFrame:SetUserPlaced(true);
+
   -- Target frame
       TargetFrame:ClearAllPoints();
       TargetFrame:SetPoint("CENTER", UIParent, "CENTER", 250, -145);
@@ -133,7 +143,9 @@
       TargetFrame.maxDebuffs = 0;
       TargetFrameFlash:Hide();
       TargetFrameTextureFramePVPIcon:SetAlpha(0);
+      TargetFrameTextureFrameLeaderIcon:SetAlpha(0);
       --TargetFrame:SetUserPlaced(true);
+
   -- Focus Frame
       FocusFrame:ClearAllPoints();
       FocusFrame:SetPoint("CENTER", UIParent, "CENTER", 375, 290);
@@ -141,6 +153,7 @@
       FocusFrame.maxDebuffs  = 0;
       FocusFrameFlash:Hide();
       FocusFrameTextureFramePVPIcon:SetAlpha(0);
+
   -- Pet Frame
      PetName:Hide();
     end);
