@@ -2,20 +2,22 @@
 -- ACTION BAR
 --------------------------------------------------------------------------------
 
-  -- Hide Hotkeys
+  -- Hide Hotkeys and Macro
     for i=1, 12 do
+
       _G["ActionButton"..i.."HotKey"]:SetAlpha(0) -- main bar
       _G["MultiBarBottomRightButton"..i.."HotKey"]:SetAlpha(0) -- bottom right bar
       _G["MultiBarBottomLeftButton"..i.."HotKey"]:SetAlpha(0) -- bottom left bar
       _G["MultiBarRightButton"..i.."HotKey"]:SetAlpha(0) -- right bar
       _G["MultiBarLeftButton"..i.."HotKey"]:SetAlpha(0) -- left bar
-  -- Hide macro names
+
       _G["ActionButton"..i.."Name"]:SetAlpha(0) -- main bar
       _G["MultiBarBottomRightButton"..i.."Name"]:SetAlpha(0) -- bottom right bar
       _G["MultiBarBottomLeftButton"..i.."Name"]:SetAlpha(0) -- bottom left bar
       _G["MultiBarRightButton"..i.."Name"]:SetAlpha(0) -- right bar
       _G["MultiBarLeftButton"..i.."Name"]:SetAlpha(0) -- left bar
-    end
+
+    end;
 
   -- Micro Menu bar
     MicroButtonAndBagsBar:Hide()
@@ -40,22 +42,59 @@
     EJMicroButton:HookScript("OnShow",function(self) self:Hide() end)
     StoreMicroButton:Hide()
     StoreMicroButton:HookScript("OnShow",function(self) self:Hide() end)
+  -- Hide Micro Menu bar popup
+    function MainMenuMicroButton_AreAlertsEnabled()
+      return false
+    end
 
   -- Main Menu bar
-    MainMenuBarArtFrameBackground:Hide()
-    MainMenuBarArtFrame.LeftEndCap:Hide()
-    MainMenuBarArtFrame.RightEndCap:Hide()
-    MainMenuBarArtFrame.PageNumber:Hide()
-    ActionBarUpButton:Hide()
-    ActionBarDownButton:Hide()
-    StatusTrackingBarManager:Hide()
+    pl = UnitLevel("player")
+    if(pl == 60) then
 
-  -- Position of Main Menu bar
-    MultiBarBottomLeft:Hide()
-    MultiBarBottomLeft:HookScript("OnShow",function(self) self:Hide() end)
-    --MainMenuBar:Hide()
-    --MainMenuBar:HookScript("OnShow",function(self) self:Hide() end)
+      MultiBarBottomLeft:ClearAllPoints()
+      MultiBarBottomLeft:SetPoint("CENTER", UIParent, "BOTTOM", 1, 25)
+      MultiBarBottomLeft.SetPoint = function() end
 
+      ActionButton1:ClearAllPoints()
+      ActionButton1:SetPoint("CENTER", UIParent, "BOTTOM", -231, 67)
+      ActionButton1.SetPoint = function() end
+
+      PetActionButton1:ClearAllPoints()
+      PetActionButton1:SetPoint("CENTER", UIParent, "BOTTOM", -152, 109)
+      PetActionButton1.SetPoint = function() end
+
+      MainMenuBarArtFrameBackground:Hide()
+      MainMenuBarArtFrame.LeftEndCap:Hide()
+      MainMenuBarArtFrame.RightEndCap:Hide()
+      MainMenuBarArtFrame.PageNumber:Hide()
+      ActionBarUpButton:Hide()
+      ActionBarDownButton:Hide()
+      StatusTrackingBarManager:Hide()
+
+    else
+
+      MultiBarBottomLeft:ClearAllPoints()
+      MultiBarBottomLeft:SetPoint("CENTER", UIParent, "BOTTOM", 1, 38)
+      MultiBarBottomLeft.SetPoint = function() end
+
+      ActionButton1:ClearAllPoints()
+      ActionButton1:SetPoint("CENTER", UIParent, "BOTTOM", -231, 80)
+      ActionButton1.SetPoint = function() end
+
+      PetActionButton1:ClearAllPoints()
+      PetActionButton1:SetPoint("CENTER", UIParent, "BOTTOM", -152, 122)
+      PetActionButton1.SetPoint = function() end
+
+      MainMenuBarArtFrameBackground:Hide()
+      MainMenuBarArtFrame.LeftEndCap:Hide()
+      MainMenuBarArtFrame.RightEndCap:Hide()
+      MainMenuBarArtFrame.PageNumber:Hide()
+      ActionBarUpButton:Hide()
+      ActionBarDownButton:Hide()
+      SlidingActionBarTexture0:Hide()
+      StatusTrackingBarManager:SetScale(0.915)
+
+    end
 --------------------------------------------------------------------------------
 -- ALIGN
 --------------------------------------------------------------------------------
@@ -191,7 +230,8 @@
       FocusFrameTextureFramePVPIcon:SetAlpha(0);
 
   -- Pet Frame
-      PetName:Hide();
+      --PetName:Hide();
+      --PetFrame:Hide();
     end);
 
   -- Indicators
