@@ -17,30 +17,38 @@
       _G["MultiBarLeftButton"..i.."Name"]:SetAlpha(0) -- left bar
     end
 
-  -- Hide Micromenu Bar
-    local loadingMenu = CreateFrame("Frame")
-    loadingMenu:SetScript("OnUpdate", function(self,...)
-      MicroButtonAndBagsBar:Hide()
-      CharacterMicroButton:Hide()
-      SpellbookMicroButton:Hide()
-      TalentMicroButton:Hide()
-      AchievementMicroButton:Hide()
-      QuestLogMicroButton:Hide()
-      GuildMicroButton:Hide()
-      LFDMicroButton:Hide()
-      CollectionsMicroButton:Hide()
-      EJMicroButton:Hide()
-      StoreMicroButton:Hide()
-      StoreMicroButton:Hide()
-    hooksecurefunc("UpdateMicroButtons",function(...) if StoreMicroButton then StoreMicroButton:Hide() end end)
-      self:SetScript("OnUpdate",nil)
-    end)
+  -- Micro Menu bar
+    MicroButtonAndBagsBar:Hide()
+    MicroButtonAndBagsBar:HookScript("OnShow",function(self) self:Hide() end)
+    CharacterMicroButton:Hide()
+    CharacterMicroButton:HookScript("OnShow",function(self) self:Hide() end)
+    SpellbookMicroButton:Hide()
+    SpellbookMicroButton:HookScript("OnShow",function(self) self:Hide() end)
+    TalentMicroButton:Hide()
+    TalentMicroButton:HookScript("OnShow",function(self) self:Hide() end)
+    AchievementMicroButton:Hide()
+    AchievementMicroButton:HookScript("OnShow",function(self) self:Hide() end)
+    QuestLogMicroButton:Hide()
+    QuestLogMicroButton:HookScript("OnShow",function(self) self:Hide() end)
+    GuildMicroButton:Hide()
+    GuildMicroButton:HookScript("OnShow",function(self) self:Hide() end)
+    LFDMicroButton:Hide()
+    LFDMicroButton:HookScript("OnShow",function(self) self:Hide() end)
+    CollectionsMicroButton:Hide()
+    CollectionsMicroButton:HookScript("OnShow",function(self) self:Hide() end)
+    EJMicroButton:Hide()
+    EJMicroButton:HookScript("OnShow",function(self) self:Hide() end)
+    StoreMicroButton:Hide()
+    StoreMicroButton:HookScript("OnShow",function(self) self:Hide() end)
 
-  -- Move and resize Extra Action Button
-      --ExtraActionButton1:ClearAllPoints();
-      --ExtraActionButton1:SetPoint("CENTER", UIParent, "CENTER", -250, -50);
-      --ExtraActionButton1:SetScale(0.9);
-      --ExtraActionButton1.style:SetAlpha(0);
+  -- Main Menu bar
+    MainMenuBarArtFrameBackground:Hide()
+    MainMenuBarArtFrame.LeftEndCap:Hide()
+    MainMenuBarArtFrame.RightEndCap:Hide()
+    MainMenuBarArtFrame.PageNumber:Hide()
+    ActionBarUpButton:Hide()
+    ActionBarDownButton:Hide()
+    StatusTrackingBarManager:Hide()
 
 --------------------------------------------------------------------------------
 -- CAST BAR
@@ -98,23 +106,6 @@
     SLASH_CHECKROLE1 = '/cr'
 
 --------------------------------------------------------------------------------
--- RAID FRAMES
---------------------------------------------------------------------------------
-
-  -- Hide Server name
-    hooksecurefunc("CompactUnitFrame_UpdateName",function(frame)
-      if frame and not frame:IsForbidden() then
-        local frame_name = frame:GetName()
-	  if frame_name and frame_name:match("^CompactRaidFrame%d") and frame.unit and frame.name then 
-            local unit_name = GetUnitName(frame.unit,true)
-	  if unit_name then
-	    frame.name:SetText(unit_name:match("[^-]+"))
-	  end
-	end
-      end
-    end)
-
---------------------------------------------------------------------------------
 -- UNIT FRAMES
 --------------------------------------------------------------------------------
 
@@ -134,7 +125,6 @@
       PlayerFrameRoleIcon:SetAlpha(0);
       PlayerLeaderIcon:SetAlpha(0);
       PlayerRestIcon:Hide();
-      --PlayerFrame:SetUserPlaced(true);
 
   -- Target frame
       TargetFrame:ClearAllPoints();
@@ -143,8 +133,9 @@
       TargetFrame.maxDebuffs = 0;
       TargetFrameFlash:Hide();
       TargetFrameTextureFramePVPIcon:SetAlpha(0);
+      TargetFrameTextureFramePrestigeBadge:SetAlpha(0);
+      TargetFrameTextureFramePrestigePortrait:SetAlpha(0);
       TargetFrameTextureFrameLeaderIcon:SetAlpha(0);
-      --TargetFrame:SetUserPlaced(true);
 
   -- Focus Frame
       FocusFrame:ClearAllPoints();
@@ -155,15 +146,33 @@
       FocusFrameTextureFramePVPIcon:SetAlpha(0);
 
   -- Pet Frame
-     PetName:Hide();
+      PetName:Hide();
     end);
+
+  -- Indicators
+    PlayerFrameGroupIndicator:Hide()
+    PlayerFrameGroupIndicator:HookScript("OnShow",function(self) self:Hide() end)
+
+  -- Rest
+    hooksecurefunc("PlayerFrame_UpdateStatus", function()
+      if IsResting("player") then
+        PlayerStatusTexture:Hide()
+        PlayerRestGlow:Hide()
+        PlayerStatusGlow:Hide()
+      elseif PlayerFrame.inCombat then
+        PlayerStatusTexture:Hide()
+        PlayerAttackGlow:Hide()
+        PlayerStatusGlow:Hide()
+      end
+    end)
+ 
 
   -- Hidden names background
     hooksecurefunc("TargetFrame_CheckFaction", function(self)
-      if ( not UnitPlayerControlled(self.unit) and UnitIsTapped(self.unit) and not UnitIsTappedByPlayer(self.unit) and not UnitIsTappedByAllThreatList(self.unit) ) then
+      if ( not UnitPlayerControlled(self.unit)) then
       self.nameBackground:SetVertexColor(0, 0, 0, 0);
         if ( self.portrait ) then
-        self.portrait:SetVertexColor(0, 0, 0, 0);
+        self.portrait:SetVertexColor(1.0, 1.0, 1.0, 1.0);
         end
     else
       self.nameBackground:SetVertexColor(0, 0, 0, 0);
@@ -219,8 +228,3 @@
     RuneFrame:HookScript("OnShow",function(self) self:Hide() end)
     WarlockPowerFrame:Hide()
     WarlockPowerFrame:HookScript("OnShow",function(self) self:Hide() end)
-
-  -- Indicators
-    --PlayerFrameGroupIndicator.Show = function() return end;
-    PlayerFrameGroupIndicator:Hide()
-    PlayerFrameGroupIndicator:HookScript("OnShow",function(self) self:Hide() end)
