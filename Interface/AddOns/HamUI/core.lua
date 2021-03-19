@@ -207,6 +207,12 @@
 -- UNIT FRAMES
 --------------------------------------------------------------------------------
 
+  -- Remove damage and healing text in portraits
+    COMBATFEEDBACK_FADEINTIME = 0 
+    COMBATFEEDBACK_HOLDTIME = 0 
+    COMBATFEEDBACK_FADEOUTTIME = 0
+
+
   -- Position of Player, Target and Focus frames
     local loadingFrame = CreateFrame("Frame");
     loadingFrame:RegisterEvent("PLAYER_ENTERING_WORLD");
@@ -342,6 +348,10 @@
 
       -- Combat
         C_CVar.SetCVar("autoSelfCast", 1)
+        C_CVar.SetCVar("floatingCombatTextCombatHealing", 1)
+        C_CVar.SetCVar("floatingCombatTextCombatDamage", 1)
+        C_CVar.SetCVar("floatingCombatTextPetMeleeDamage", 0)
+        C_CVar.SetCVar("floatingCombatTextPetSpellDamage", 0)
 
       -- Chat
         C_CVar.SetCVar("colorChatNamesByClass", 1)
@@ -414,4 +424,3 @@
         end
       end
     end)
-
