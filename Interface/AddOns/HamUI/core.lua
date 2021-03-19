@@ -266,7 +266,6 @@
       end
     end)
  
-
   -- Hidden names background
     hooksecurefunc("TargetFrame_CheckFaction", function(self)
       if ( not UnitPlayerControlled(self.unit)) then
@@ -328,6 +327,14 @@
     RuneFrame:HookScript("OnShow",function(self) self:Hide() end)
     WarlockPowerFrame:Hide()
     WarlockPowerFrame:HookScript("OnShow",function(self) self:Hide() end)
+
+  -- Personal Resource Display
+
+    local prdShow = CreateFrame("Frame")
+      prdShow:RegisterEvent("PLAYER_ENTERING_WORLD")
+      prdShow:SetScript("OnEvent",function(self, event, ...)
+        C_CVar.SetCVar('nameplateShowSelf',1)
+    end);
 
 --------------------------------------------------------------------------------
 -- VARIOUS
