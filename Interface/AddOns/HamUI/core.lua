@@ -341,7 +341,7 @@
       varShow:SetScript("OnEvent",function(self, event, ...)
 
       -- Combat
-        C_CVar.SetCVar("autoSelfCast", 0)
+        C_CVar.SetCVar("autoSelfCast", 1)
 
       -- Chat
         C_CVar.SetCVar("colorChatNamesByClass", 1)
