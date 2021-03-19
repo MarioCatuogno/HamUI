@@ -346,6 +346,9 @@
       varShow:RegisterEvent("PLAYER_LOGIN")
       varShow:SetScript("OnEvent",function(self, event, ...)
 
+      -- Action Bar
+        C_CVar.SetCVar("lockActionBar", 1)
+
       -- Combat
         C_CVar.SetCVar("autoSelfCast", 1)
         C_CVar.SetCVar("floatingCombatTextCombatHealing", 1)
@@ -359,6 +362,7 @@
         C_CVar.SetCVar("guildMemberNotify", 1)
         C_CVar.SetCVar("profanityFilter", 0)
         C_CVar.SetCVar("spamFilter", 1)
+        C_CVar.SetCVar("chatMouseScroll", 1)
 
       -- Floating Combat Text
         C_CVar.SetCVar("enableFloatingCombatText", 0)
@@ -369,6 +373,8 @@
 
       -- Unit Frames
         C_CVar.SetCVar("showTargetOfTarget", 1)
+        C_CVar.SetCVar("raidFramesDisplayClassColor", 1)
+        C_CVar.SetCVar("useCompactPartyFrames", 1)
 
       -- Various
         C_CVar.SetCVar("autoLootDefault", 1)
