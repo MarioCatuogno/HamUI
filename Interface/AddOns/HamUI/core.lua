@@ -42,59 +42,20 @@
     EJMicroButton:HookScript("OnShow",function(self) self:Hide() end)
     StoreMicroButton:Hide()
     StoreMicroButton:HookScript("OnShow",function(self) self:Hide() end)
+
   -- Hide Micro Menu bar popup
     function MainMenuMicroButton_AreAlertsEnabled()
       return false
-    end
+    end;
 
   -- Main Menu bar
     pl = UnitLevel("player")
-    if(pl == 60) then
+      if(pl == 60) then
+        MainMenuBarArtFrame:Hide()
+        StatusTrackingBarManager:Hide()
+      else
+    end;
 
-      MultiBarBottomLeft:ClearAllPoints()
-      MultiBarBottomLeft:SetPoint("CENTER", UIParent, "BOTTOM", 1, 25)
-      MultiBarBottomLeft.SetPoint = function() end
-
-      ActionButton1:ClearAllPoints()
-      ActionButton1:SetPoint("CENTER", UIParent, "BOTTOM", -231, 67)
-      ActionButton1.SetPoint = function() end
-
-      PetActionButton1:ClearAllPoints()
-      PetActionButton1:SetPoint("CENTER", UIParent, "BOTTOM", -152, 109)
-      PetActionButton1.SetPoint = function() end
-
-      MainMenuBarArtFrameBackground:Hide()
-      MainMenuBarArtFrame.LeftEndCap:Hide()
-      MainMenuBarArtFrame.RightEndCap:Hide()
-      MainMenuBarArtFrame.PageNumber:Hide()
-      ActionBarUpButton:Hide()
-      ActionBarDownButton:Hide()
-      StatusTrackingBarManager:Hide()
-
-    else
-
-      MultiBarBottomLeft:ClearAllPoints()
-      MultiBarBottomLeft:SetPoint("CENTER", UIParent, "BOTTOM", 1, 38)
-      MultiBarBottomLeft.SetPoint = function() end
-
-      ActionButton1:ClearAllPoints()
-      ActionButton1:SetPoint("CENTER", UIParent, "BOTTOM", -231, 80)
-      ActionButton1.SetPoint = function() end
-
-      PetActionButton1:ClearAllPoints()
-      PetActionButton1:SetPoint("CENTER", UIParent, "BOTTOM", -152, 122)
-      PetActionButton1.SetPoint = function() end
-
-      MainMenuBarArtFrameBackground:Hide()
-      MainMenuBarArtFrame.LeftEndCap:Hide()
-      MainMenuBarArtFrame.RightEndCap:Hide()
-      MainMenuBarArtFrame.PageNumber:Hide()
-      ActionBarUpButton:Hide()
-      ActionBarDownButton:Hide()
-      SlidingActionBarTexture0:Hide()
-      StatusTrackingBarManager:SetScale(0.915)
-
-    end
 --------------------------------------------------------------------------------
 -- ALIGN
 --------------------------------------------------------------------------------
@@ -177,6 +138,17 @@
     CHAT_FRAME_TAB_NORMAL_MOUSEOVER_ALPHA = 0.5
     CHAT_FRAME_TAB_NORMAL_NOMOUSE_ALPHA = 0
 
+  -- Position Chat frame
+    ChatFrame1:ClearAllPoints();
+    ChatFrame1:SetPoint('BOTTOMLEFT', UIParent, 'BOTTOMLEFT', 10, 10);
+    ChatFrame1:SetWidth(150);
+    ChatFrame1:SetHeight(121);
+
+    local function DoNothing() end
+      ChatFrame1.ClearAllPoints = DoNothing
+      ChatFrame1.SetPoint = DoNothing
+    ;
+
 --------------------------------------------------------------------------------
 -- COMMANDS
 --------------------------------------------------------------------------------
@@ -188,6 +160,25 @@
     SLASH_RELOADUI1 = '/rl'
     SlashCmdList["CHECKROLE"] = function() InitiateRolePoll() end
     SLASH_CHECKROLE1 = '/cr'
+
+--------------------------------------------------------------------------------
+-- TOOLTIPS
+--------------------------------------------------------------------------------
+
+  -- Set in-game tooltip position
+    hooksecurefunc("GameTooltip_SetDefaultAnchor", function (tooltip, parent)
+    tooltip:SetOwner(parent, "ANCHOR_NONE");
+    tooltip:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -40, 60);
+    end)
+
+  -- Show Spell ID
+    GameTooltip:HookScript("OnTooltipSetSpell", function(self)
+      local name, id = self:GetSpell()
+      if id then
+        self:AddLine("    ")
+        self:AddLine("ID: " .. tostring(id), 1, 1, 1)
+      end
+    end)
 
 --------------------------------------------------------------------------------
 -- UNIT FRAMES
