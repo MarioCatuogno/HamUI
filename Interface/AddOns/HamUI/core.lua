@@ -59,6 +59,9 @@
     MainMenuBarArtFrame.PageNumber:Hide();
     SlidingActionBarTexture0:SetAlpha(0);
     SlidingActionBarTexture1:SetAlpha(0);
+    StanceBarLeft:SetAlpha(0);
+    StanceBarRight:SetAlpha(0);
+    StanceButton1NormalTexture2:SetAlpha(0);
 
   -- Extra Action button
     ExtraActionButton1:ClearAllPoints();
@@ -328,12 +331,68 @@
     WarlockPowerFrame:Hide()
     WarlockPowerFrame:HookScript("OnShow",function(self) self:Hide() end)
 
-  -- Personal Resource Display
+--------------------------------------------------------------------------------
+-- VARIABLES
+--------------------------------------------------------------------------------
 
-    local prdShow = CreateFrame("Frame")
-      prdShow:RegisterEvent("PLAYER_ENTERING_WORLD")
-      prdShow:SetScript("OnEvent",function(self, event, ...)
+  -- Set Variables
+    local varShow = CreateFrame("Frame")
+      varShow:RegisterEvent("PLAYER_LOGIN")
+      varShow:SetScript("OnEvent",function(self, event, ...)
+
+      -- Combat
+        C_CVar.SetCVar("autoSelfCast", 0)
+
+      -- Chat
+        C_CVar.SetCVar("colorChatNamesByClass", 1)
+        C_CVar.SetCVar("guildMemberNotify", 1)
+        C_CVar.SetCVar("profanityFilter", 0)
+        C_CVar.SetCVar("spamFilter", 1)
+
+      -- Floating Combat Text
+        C_CVar.SetCVar("enableFloatingCombatText", 0)
+        C_CVar.SetCVar("floatingCombatTextCombatDamageDirectionalScale", 0)
+        C_CVar.SetCVar("floatingCombatTextCombatHealingAbsorbTarget", 0)
+        C_CVar.SetCVar("floatingCombatTextLowManaHealth", 0)
+        C_CVar.SetCVar("floatingCombatTextReactives", 0)
+
+      -- Unit Frames
+        C_CVar.SetCVar("showTargetOfTarget", 1)
+
+      -- Various
+        C_CVar.SetCVar("autoLootDefault", 1)
+        C_CVar.SetCVar("lootUnderMouse", 0)
+        C_CVar.SetCVar("cursorSizePreferred", 0)
+        C_CVar.SetCVar("showTutorials", 0)
+        C_CVar.SetCVar("movieSubtitle", 1)
+        C_CVar.SetCVar("screenEdgeFlash", 0)
+        C_CVar.SetCVar("autoClearAFK", 0)
+        C_CVar.SetCVar("autoDismountFlying", 0)
+        C_CVar.SetCVar("synchronizeBindings", 1)
+        C_CVar.SetCVar("synchronizeConfig", 1)
+        C_CVar.SetCVar("synchronizeMacros", 1)
+        C_CVar.SetCVar("synchronizeSettings", 1)
+
+      -- Nameplates
         C_CVar.SetCVar('nameplateShowSelf',1)
+        C_CVar.SetCVar("nameplateShowAll", 1)
+        C_CVar.SetCVar("nameplateShowOnlyNames", 0)
+        C_CVar.SetCVar("nameplateMotion", 1)
+        C_CVar.SetCVar("UnitNameNPC", 0)
+        C_CVar.SetCVar("UnitNameInteractiveNPC", 0)
+        C_CVar.SetCVar("UnitNameFriendlyTotemName", 0)
+        C_CVar.SetCVar("UnitNameFriendlyGuardianName", 0)
+        C_CVar.SetCVar("UnitNameFriendlyPetName", 0)
+        C_CVar.SetCVar("UnitNamePlayerPVPTitle", 0)
+        C_CVar.SetCVar("UnitNamePlayerGuild", 0)
+        C_CVar.SetCVar("UnitNameGuildTitle", 0)
+        C_CVar.SetCVar("UnitNameOwn", 0)
+        C_CVar.SetCVar("UnitNameEnemyPlayerName", 1)
+        C_CVar.SetCVar("UnitNameEnemyPetName", 1)
+        C_CVar.SetCVar("UnitNameEnemyGuardianName", 1)
+        C_CVar.SetCVar("UnitNameEnemyTotemName", 1)
+        C_CVar.SetCVar("UnitNameFriendlySpecialNPCName", 1)
+
     end);
 
 --------------------------------------------------------------------------------
