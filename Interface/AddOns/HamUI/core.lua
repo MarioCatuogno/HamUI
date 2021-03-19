@@ -49,18 +49,30 @@
     end;
 
   -- Main Menu bar
-    pl = UnitLevel("player")
-      if(pl == 60) then
-        MainMenuBarArtFrame:Hide()
-        StatusTrackingBarManager:Hide()
-      else
-    end;
+    local b1 = MainMenuBarArtFrameBackground b1:UnregisterAllEvents() b1:SetScript("OnShow", b1.Hide) b1:Hide();
+    local b2 = ActionBarUpButton b2:UnregisterAllEvents() b2:SetScript("OnShow", b2.Hide) b2:Hide();
+    local b3 = ActionBarDownButton b3:UnregisterAllEvents() b3:SetScript("OnShow", b3.Hide) b3:Hide();
+    local b4 = StatusTrackingBarManager b4:UnregisterAllEvents() b4:SetScript("OnShow", b4.Hide) b4:Hide();
+
+    MainMenuBarArtFrame.LeftEndCap:Hide();
+    MainMenuBarArtFrame.RightEndCap:Hide();
+    MainMenuBarArtFrame.PageNumber:Hide();
+    SlidingActionBarTexture0:SetAlpha(0);
+    SlidingActionBarTexture1:SetAlpha(0);
 
   -- Extra Action button
     ExtraActionButton1:ClearAllPoints();
     ExtraActionButton1:SetPoint("CENTER", UIParent, "CENTER", -390, -155);
     ExtraActionButton1:SetScale(0.9);
     ExtraActionButton1.style:SetAlpha(0);
+    ExtraActionButton1.style:Hide();
+
+  -- Zone Ability button
+    ZoneAbilityFrame:ClearAllPoints();
+    ZoneAbilityFrame:SetPoint("CENTER", UIParent, "CENTER", -390, -155);
+    ZoneAbilityFrame:SetScale(0.9);
+    ZoneAbilityFrame.Style:SetAlpha(0);
+    ZoneAbilityFrame.Style:Hide();
 
 --------------------------------------------------------------------------------
 -- ALIGN
@@ -232,8 +244,9 @@
       FocusFrame:SetUserPlaced(true);
 
   -- Pet Frame
-      --PetName:Hide();
-      --PetFrame:Hide();
+      PetFrame:ClearAllPoints();
+      PetFrame:Hide();
+      PetFrame:HookScript("OnShow",function(self) self:Hide() end)
     end);
 
   -- Indicators
