@@ -258,6 +258,13 @@
       PetFrame:HookScript("OnShow",function(self) self:Hide() end)
     end);
 
+  -- Hide server in Raid Frame
+    hooksecurefunc("CompactUnitFrame_UpdateName",function(frame)
+      if frame.optionTable.displayName then
+      frame.name:SetText(GetUnitName(frame.unit,true):match("[^-]+"))
+      frame.name:Show()end 
+    end);
+
   -- Indicators
     PlayerFrameGroupIndicator:Hide()
     PlayerFrameGroupIndicator:HookScript("OnShow",function(self) self:Hide() end)
@@ -373,8 +380,15 @@
 
       -- Unit Frames
         C_CVar.SetCVar("showTargetOfTarget", 1)
-        C_CVar.SetCVar("raidFramesDisplayClassColor", 1)
+
+      -- Raid and Party frames
         C_CVar.SetCVar("useCompactPartyFrames", 1)
+        C_CVar.SetCVar("raidFramesDisplayAggroHighlight", 1)
+        C_CVar.SetCVar("raidFramesDisplayClassColor", 1)
+        C_CVar.SetCVar("raidFramesDisplayOnlyDispellableDebuffs", 1)
+        C_CVar.SetCVar("raidFramesDisplayHealthText", 0)
+        C_CVar.SetCVar("raidFramesDisplayPowerBars", 0)
+        C_CVar.SetCVar("raidOptionKeepGroupsTogether", 1)
 
       -- Various
         C_CVar.SetCVar("autoLootDefault", 1)
@@ -431,4 +445,3 @@
         end
       end
     end)
-
