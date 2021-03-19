@@ -374,6 +374,7 @@
         C_CVar.SetCVar("synchronizeSettings", 1)
 
       -- Nameplates
+        C_CVar.SetCVar('NameplatePersonalShowAlways',1)
         C_CVar.SetCVar('nameplateShowSelf',1)
         C_CVar.SetCVar("nameplateShowAll", 1)
         C_CVar.SetCVar("nameplateShowOnlyNames", 0)
