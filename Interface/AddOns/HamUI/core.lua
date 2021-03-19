@@ -56,6 +56,12 @@
       else
     end;
 
+  -- Extra Action button
+    ExtraActionButton1:ClearAllPoints();
+    ExtraActionButton1:SetPoint("CENTER", UIParent, "CENTER", -390, -155);
+    ExtraActionButton1:SetScale(0.9);
+    ExtraActionButton1.style:SetAlpha(0);
+
 --------------------------------------------------------------------------------
 -- ALIGN
 --------------------------------------------------------------------------------
@@ -102,12 +108,14 @@
   -- Set in-game player cast bar position
     CastingBarFrame:ClearAllPoints()
     CastingBarFrame:SetPoint("CENTER",UIParent,"CENTER", 0, -130)
+    CastingBarFrame:SetFrameStrata("LOW")
     CastingBarFrame.SetPoint = function() end
     CastingBarFrame:SetScale(1.0)
 
   -- Set in-game target cast bar position
     TargetFrameSpellBar:ClearAllPoints()
     TargetFrameSpellBar:SetPoint("CENTER", TargetFrame, "TOP", -10, 10)
+    TargetFrameSpellBar:SetFrameStrata("LOW")
     TargetFrameSpellBar.SetPoint = function() end
     TargetFrameSpellBar:SetScale(1.0)
 
@@ -200,6 +208,7 @@
       PlayerFrameRoleIcon:SetAlpha(0);
       PlayerLeaderIcon:SetAlpha(0);
       PlayerRestIcon:Hide();
+      PlayerFrame:SetUserPlaced(true);
 
   -- Target frame
       TargetFrame:ClearAllPoints();
@@ -211,6 +220,7 @@
       TargetFrameTextureFramePrestigeBadge:SetAlpha(0);
       TargetFrameTextureFramePrestigePortrait:SetAlpha(0);
       TargetFrameTextureFrameLeaderIcon:SetAlpha(0);
+      TargetFrame:SetUserPlaced(true);
 
   -- Focus Frame
       FocusFrame:ClearAllPoints();
@@ -219,6 +229,7 @@
       FocusFrame.maxDebuffs  = 0;
       FocusFrameFlash:Hide();
       FocusFrameTextureFramePVPIcon:SetAlpha(0);
+      FocusFrame:SetUserPlaced(true);
 
   -- Pet Frame
       --PetName:Hide();
@@ -304,3 +315,22 @@
     RuneFrame:HookScript("OnShow",function(self) self:Hide() end)
     WarlockPowerFrame:Hide()
     WarlockPowerFrame:HookScript("OnShow",function(self) self:Hide() end)
+
+--------------------------------------------------------------------------------
+-- VARIOUS
+--------------------------------------------------------------------------------
+
+  -- Automatically sell grey icons
+    local g = CreateFrame("Frame")
+    g:RegisterEvent("MERCHANT_SHOW")
+    g:SetScript("OnEvent", function()  
+      local bag, slot
+      for bag = 0, 4 do
+        for slot = 0, GetContainerNumSlots(bag) do
+          local link = GetContainerItemLink(bag, slot)
+          if link and (select(3, GetItemInfo(link)) == 0) then
+            UseContainerItem(bag, slot)
+          end
+        end
+      end
+    end)
