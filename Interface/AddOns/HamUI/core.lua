@@ -19,7 +19,7 @@
 
   end;
 
--- Micro Menu bar
+-- Hide Micro Menu bar
   MicroButtonAndBagsBar:Hide()
   MicroButtonAndBagsBar:HookScript("OnShow",function(self) self:Hide() end)
   CharacterMicroButton:Hide()
@@ -48,12 +48,11 @@
     return false
   end;
 
--- Main Menu bar
+-- Hide Main Menu bar art
   local b1 = MainMenuBarArtFrameBackground b1:UnregisterAllEvents() b1:SetScript("OnShow", b1.Hide) b1:Hide();
   local b2 = ActionBarUpButton b2:UnregisterAllEvents() b2:SetScript("OnShow", b2.Hide) b2:Hide();
   local b3 = ActionBarDownButton b3:UnregisterAllEvents() b3:SetScript("OnShow", b3.Hide) b3:Hide();
   local b4 = StatusTrackingBarManager b4:UnregisterAllEvents() b4:SetScript("OnShow", b4.Hide) b4:Hide();
-
   MainMenuBarArtFrame.LeftEndCap:Hide();
   MainMenuBarArtFrame.RightEndCap:Hide();
   MainMenuBarArtFrame.PageNumber:Hide();
@@ -63,14 +62,14 @@
   StanceBarRight:SetAlpha(0);
   StanceButton1NormalTexture2:SetAlpha(0);
 
--- Extra Action button
+-- Move Extra Action button
   ExtraActionButton1:ClearAllPoints();
   ExtraActionButton1:SetPoint("TOP", UIParent, "TOP", 0, -100);
   ExtraActionButton1:SetScale(0.9);
   ExtraActionButton1.style:SetAlpha(0);
   ExtraActionButton1.style:Hide();
 
--- Zone Ability button
+-- Move Zone Ability button
   ZoneAbilityFrame:ClearAllPoints();
   ZoneAbilityFrame:SetPoint("TOP", UIParent, "TOP", 0, -100);
   ZoneAbilityFrame:SetScale(0.9);
@@ -263,7 +262,7 @@
 
   end);
 
--- Rest
+-- Hide Rest glow
   hooksecurefunc("PlayerFrame_UpdateStatus", function()
     if IsResting("player") then
       PlayerStatusTexture:Hide()
@@ -276,7 +275,7 @@
     end
   end)
 
--- Hidden names background
+-- Hide names background
   hooksecurefunc("TargetFrame_CheckFaction", function(self)
     if ( not UnitPlayerControlled(self.unit)) then
     self.nameBackground:SetVertexColor(0, 0, 0, 0);
@@ -291,7 +290,7 @@
     end
   end)
 
--- Colored health bar
+-- Colour health bar
   local function colour(statusbar, unit)
     local _, class, c
     if UnitIsPlayer(unit) and UnitIsConnected(unit) and unit == statusbar.unit and UnitClass(unit) then
@@ -305,7 +304,7 @@
     colour(self, self.unit)
   end)
 
--- Class icon portrait
+-- Use Class icon portrait
   hooksecurefunc("UnitFramePortrait_Update",function(self)
     if self.portrait then
       if UnitIsPlayer(self.unit) then                
@@ -320,7 +319,7 @@
       end
   end)
 
--- Power Bar
+-- Hide Power Bar
   ComboPointPlayerFrame:Hide()
   ComboPointPlayerFrame:HookScript("OnShow",function(self) self:Hide() end)
   MageArcaneChargesFrame:Hide()
@@ -353,7 +352,7 @@ hooksecurefunc("CompactRaidGroup_InitializeForGroup", function(frame)
   frame.title:SetText("");
 end);
 
--- Indicators
+-- Hide Group indicators
 PlayerFrameGroupIndicator:Hide()
 PlayerFrameGroupIndicator:HookScript("OnShow",function(self) self:Hide() end)
 
@@ -391,32 +390,6 @@ PlayerFrameGroupIndicator:HookScript("OnShow",function(self) self:Hide() end)
       C_CVar.SetCVar("floatingCombatTextLowManaHealth", 0)
       C_CVar.SetCVar("floatingCombatTextReactives", 0)
 
-    -- Unit Frames
-      C_CVar.SetCVar("showTargetOfTarget", 1)
-
-    -- Raid and Party frames
-      C_CVar.SetCVar("useCompactPartyFrames", 1)
-      C_CVar.SetCVar("raidFramesDisplayAggroHighlight", 1)
-      C_CVar.SetCVar("raidFramesDisplayClassColor", 1)
-      C_CVar.SetCVar("raidFramesDisplayOnlyDispellableDebuffs", 1)
-      C_CVar.SetCVar("raidFramesDisplayHealthText", 0)
-      C_CVar.SetCVar("raidFramesDisplayPowerBars", 0)
-      C_CVar.SetCVar("raidOptionKeepGroupsTogether", 1)
-
-    -- Various
-      C_CVar.SetCVar("autoLootDefault", 1)
-      C_CVar.SetCVar("lootUnderMouse", 0)
-      C_CVar.SetCVar("cursorSizePreferred", 0)
-      C_CVar.SetCVar("showTutorials", 0)
-      C_CVar.SetCVar("movieSubtitle", 1)
-      C_CVar.SetCVar("screenEdgeFlash", 0)
-      C_CVar.SetCVar("autoClearAFK", 0)
-      C_CVar.SetCVar("autoDismountFlying", 0)
-      C_CVar.SetCVar("synchronizeBindings", 1)
-      C_CVar.SetCVar("synchronizeConfig", 1)
-      C_CVar.SetCVar("synchronizeMacros", 1)
-      C_CVar.SetCVar("synchronizeSettings", 1)
-
     -- Nameplates
       C_CVar.SetCVar('NameplatePersonalShowAlways',1)
       C_CVar.SetCVar('nameplateShowSelf',1)
@@ -437,6 +410,42 @@ PlayerFrameGroupIndicator:HookScript("OnShow",function(self) self:Hide() end)
       C_CVar.SetCVar("UnitNameEnemyGuardianName", 1)
       C_CVar.SetCVar("UnitNameEnemyTotemName", 1)
       C_CVar.SetCVar("UnitNameFriendlySpecialNPCName", 1)
+
+    -- Unit Frames
+      C_CVar.SetCVar("showTargetOfTarget", 1)
+
+    -- Raid and Party frames
+      C_CVar.SetCVar("useCompactPartyFrames", 1)
+      C_CVar.SetCVar("raidFramesDisplayAggroHighlight", 1)
+      C_CVar.SetCVar("raidFramesDisplayClassColor", 1)
+      C_CVar.SetCVar("raidFramesDisplayOnlyDispellableDebuffs", 1)
+      C_CVar.SetCVar("raidFramesDisplayHealthText", 0)
+      C_CVar.SetCVar("raidOptionDisplayMainTankAndAssist", 0)
+      C_CVar.SetCVar("raidOptionDisplayPets", 0)
+      C_CVar.SetCVar("raidFramesDisplayPowerBars", 0)
+      C_CVar.SetCVar("raidOptionKeepGroupsTogether", 1)
+
+    -- Toast
+      C_CVar.SetCVar("showToastBroadcast", 0)
+      C_CVar.SetCVar("showToastFriendRequest", 0)
+      C_CVar.SetCVar("showToastOffline", 0)
+      C_CVar.SetCVar("showToastOnline", 0)
+      C_CVar.SetCVar("showToastWindow", 0)
+
+    -- Various
+      C_CVar.SetCVar("autoLootDefault", 1)
+      C_CVar.SetCVar("alwaysCompareItems", 1)
+      C_CVar.SetCVar("lootUnderMouse", 0)
+      C_CVar.SetCVar("cursorSizePreferred", 0)
+      C_CVar.SetCVar("showTutorials", 0)
+      C_CVar.SetCVar("movieSubtitle", 1)
+      C_CVar.SetCVar("screenEdgeFlash", 0)
+      C_CVar.SetCVar("autoClearAFK", 1)
+      C_CVar.SetCVar("autoDismountFlying", 0)
+      C_CVar.SetCVar("synchronizeBindings", 1)
+      C_CVar.SetCVar("synchronizeConfig", 1)
+      C_CVar.SetCVar("synchronizeMacros", 1)
+      C_CVar.SetCVar("synchronizeSettings", 1)
 
   end);
 
