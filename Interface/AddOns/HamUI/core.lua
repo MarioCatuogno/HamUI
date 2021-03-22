@@ -76,6 +76,10 @@
   ZoneAbilityFrame.Style:SetAlpha(0);
   ZoneAbilityFrame.Style:Hide();
 
+-- Move Player Power Bar Alt
+  PlayerPowerBarAlt:ClearAllPoints();
+  PlayerPowerBarAlt:SetPoint("TOP", UIParent, "TOP", 0, -30);
+
 --------------------------------------------------------------------------------
 -- ALIGN
 --------------------------------------------------------------------------------
@@ -184,6 +188,24 @@
   SLASH_CHECKROLE1 = '/cr'
 
 --------------------------------------------------------------------------------
+-- MAP
+--------------------------------------------------------------------------------
+
+-- Hide minimap buttons
+  MinimapZoomIn:Hide()
+  MinimapZoomOut:Hide()
+
+-- Enable zoom-in/zoom-out with mouse wheel
+  Minimap:EnableMouseWheel(true)
+  Minimap:SetScript('OnMouseWheel', function(self, delta)
+  if delta > 0 then
+    Minimap_ZoomIn()
+  else
+    Minimap_ZoomOut()
+  end
+  end)
+
+  --------------------------------------------------------------------------------
 -- TOOLTIPS
 --------------------------------------------------------------------------------
 
@@ -342,9 +364,9 @@
 -- Hide server in Raid Frame
 hooksecurefunc("CompactUnitFrame_UpdateName",function(frame)
   if frame.optionTable.displayName then
-  frame.name:SetText(GetUnitName(frame.unit,true):match("[^-]+"))
-  --frame.name:Show()
-  else frame.name:Hide() end
+      frame.name:SetText((UnitName(frame.unit)));
+      frame.name:Show()
+  end
 end);
 
 -- Hide group names in Raid Frame
