@@ -60,6 +60,7 @@
   SlidingActionBarTexture1:SetAlpha(0);
   StanceBarLeft:SetAlpha(0);
   StanceBarRight:SetAlpha(0);
+  StanceBarMiddle:SetAlpha(0);
   StanceButton1NormalTexture2:SetAlpha(0);
 
 -- Move Extra Action button
@@ -246,6 +247,8 @@
     PlayerFrameFlash:Hide();
     PlayerHitIndicator:Hide();
     PlayerPVPIcon:SetAlpha(0);
+    PlayerPrestigeBadge:SetAlpha(0);
+    PlayerPrestigePortrait:SetAlpha(0);
     PlayerFrameRoleIcon:SetAlpha(0);
     PlayerLeaderIcon:SetAlpha(0);
     PlayerRestIcon:Hide();
@@ -262,6 +265,8 @@
     TargetFrame.maxBuffs = 0;
     TargetFrame.maxDebuffs = 0;
     TargetFrameFlash:Hide();
+    FocusFrameTextureFramePrestigeBadge:SetAlpha(0);
+    FocusFrameTextureFramePrestigePortrait:SetAlpha(0);
     TargetFrameTextureFramePVPIcon:SetAlpha(0);
     TargetFrameTextureFramePrestigeBadge:SetAlpha(0);
     TargetFrameTextureFramePrestigePortrait:SetAlpha(0);
