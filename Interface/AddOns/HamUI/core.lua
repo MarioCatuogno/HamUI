@@ -137,34 +137,11 @@ setupUiCastBar:RegisterEvent("PLAYER_LOGIN");
 setupUiCastBar:SetScript("OnEvent",function()
 
 -- Player Cast Bar position
-CastingBarFrame:SetFrameStrata("BACKGROUND")
-CastingBarFrame.Border:Hide()
-
-CastingBarFrame:SetWidth(PlayerFrameHealthBar:GetWidth())
-CastingBarFrame:SetHeight(PlayerName:GetHeight()*1.8)
 CastingBarFrame:ClearAllPoints()
-CastingBarFrame:SetPoint("CENTER", PlayerName, "CENTER", 0, -1)
+CastingBarFrame:SetPoint("CENTER",UIParent,"CENTER", 0, -340)
+CastingBarFrame:SetFrameStrata("BACKGROUND")
 CastingBarFrame.SetPoint = function() end
-
-CastingBarFrame.Text:ClearAllPoints()
-CastingBarFrame.Text:SetPoint("CENTER", CastingBarFrame, "CENTER", 0, 0)
-CastingBarFrame.Text.SetPoint = function() end
-
--- Player Cast Bar borders
-CastingBarFrame.Border:SetWidth(CastingBarFrame:GetWidth()*1.38)
-CastingBarFrame.Border:SetHeight(CastingBarFrame:GetHeight()*3.6)
-CastingBarFrame.Border:ClearAllPoints()
-CastingBarFrame.Border:SetPoint("CENTER", CastingBarFrame, "CENTER", 0, 0)
-CastingBarFrame.Border.SetPoint = function() end
-CastingBarFrame.Border:SetTexture("Interface\\CastingBar\\UI-CastingBar-Border-Small")
-
--- Player Cast Bar flashing
-CastingBarFrame.Flash:SetWidth(CastingBarFrame.Border:GetWidth())
-CastingBarFrame.Flash:SetHeight(CastingBarFrame.Border:GetHeight())
-CastingBarFrame.Flash:ClearAllPoints()
-CastingBarFrame.Flash:SetPoint("CENTER", CastingBarFrame.Border, "CENTER", 0, 0)
-CastingBarFrame.Flash.SetPoint = function() end
-CastingBarFrame.Flash:SetTexture("Interface\\CastingBar\\UI-CastingBar-Flash-Small")
+CastingBarFrame:SetScale(1.0)
 
 -- Player Set in-game target cast bar position
 TargetFrameSpellBar:ClearAllPoints()
