@@ -75,6 +75,72 @@ setupUiActionBar:SetScript("OnEvent",function()
   ExtraActionButton1.style:SetAlpha(0);
   ExtraActionButton1.style:Hide();
 
+  -- Hide Icon buttons
+  ActionButton1NormalTexture:SetAlpha(0);
+  ActionButton2NormalTexture:SetAlpha(0);
+  ActionButton3NormalTexture:SetAlpha(0);
+  ActionButton4NormalTexture:SetAlpha(0);
+  ActionButton5NormalTexture:SetAlpha(0);
+  ActionButton6NormalTexture:SetAlpha(0);
+  ActionButton7NormalTexture:SetAlpha(0);
+  ActionButton8NormalTexture:SetAlpha(0);
+  ActionButton9NormalTexture:SetAlpha(0);
+  ActionButton10NormalTexture:SetAlpha(0);
+  ActionButton11NormalTexture:SetAlpha(0);
+  ActionButton12NormalTexture:SetAlpha(0);
+
+  MultiBarBottomLeftButton1NormalTexture:SetAlpha(0);
+  MultiBarBottomLeftButton2NormalTexture:SetAlpha(0);
+  MultiBarBottomLeftButton3NormalTexture:SetAlpha(0);
+  MultiBarBottomLeftButton4NormalTexture:SetAlpha(0);
+  MultiBarBottomLeftButton5NormalTexture:SetAlpha(0);
+  MultiBarBottomLeftButton6NormalTexture:SetAlpha(0);
+  MultiBarBottomLeftButton7NormalTexture:SetAlpha(0);
+  MultiBarBottomLeftButton8NormalTexture:SetAlpha(0);
+  MultiBarBottomLeftButton9NormalTexture:SetAlpha(0);
+  MultiBarBottomLeftButton10NormalTexture:SetAlpha(0);
+  MultiBarBottomLeftButton11NormalTexture:SetAlpha(0);
+  MultiBarBottomLeftButton12NormalTexture:SetAlpha(0);
+
+  MultiBarBottomLeftButton1FloatingBG:SetAlpha(0);
+  MultiBarBottomLeftButton2FloatingBG:SetAlpha(0);
+  MultiBarBottomLeftButton3FloatingBG:SetAlpha(0);
+  MultiBarBottomLeftButton4FloatingBG:SetAlpha(0);
+  MultiBarBottomLeftButton5FloatingBG:SetAlpha(0);
+  MultiBarBottomLeftButton6FloatingBG:SetAlpha(0);
+  MultiBarBottomLeftButton7FloatingBG:SetAlpha(0);
+  MultiBarBottomLeftButton8FloatingBG:SetAlpha(0);
+  MultiBarBottomLeftButton9FloatingBG:SetAlpha(0);
+  MultiBarBottomLeftButton10FloatingBG:SetAlpha(0);
+  MultiBarBottomLeftButton11FloatingBG:SetAlpha(0);
+  MultiBarBottomLeftButton12FloatingBG:SetAlpha(0);
+
+  MultiBarRightButton1NormalTexture:SetAlpha(0);
+  MultiBarRightButton2NormalTexture:SetAlpha(0);
+  MultiBarRightButton3NormalTexture:SetAlpha(0);
+  MultiBarRightButton4NormalTexture:SetAlpha(0);
+  MultiBarRightButton5NormalTexture:SetAlpha(0);
+  MultiBarRightButton6NormalTexture:SetAlpha(0);
+  MultiBarRightButton7NormalTexture:SetAlpha(0);
+  MultiBarRightButton8NormalTexture:SetAlpha(0);
+  MultiBarRightButton9NormalTexture:SetAlpha(0);
+  MultiBarRightButton10NormalTexture:SetAlpha(0);
+  MultiBarRightButton11NormalTexture:SetAlpha(0);
+  MultiBarRightButton12NormalTexture:SetAlpha(0);
+  
+  MultiBarRightButton1FloatingBG:SetAlpha(0);
+  MultiBarRightButton2FloatingBG:SetAlpha(0);
+  MultiBarRightButton3FloatingBG:SetAlpha(0);
+  MultiBarRightButton4FloatingBG:SetAlpha(0);
+  MultiBarRightButton5FloatingBG:SetAlpha(0);
+  MultiBarRightButton6FloatingBG:SetAlpha(0);
+  MultiBarRightButton7FloatingBG:SetAlpha(0);
+  MultiBarRightButton8FloatingBG:SetAlpha(0);
+  MultiBarRightButton9FloatingBG:SetAlpha(0);
+  MultiBarRightButton10FloatingBG:SetAlpha(0);
+  MultiBarRightButton11FloatingBG:SetAlpha(0);
+  MultiBarRightButton12FloatingBG:SetAlpha(0);
+
   -- Move Zone Ability button
   ZoneAbilityFrame:ClearAllPoints();
   ZoneAbilityFrame:SetPoint("TOP", UIParent, "TOP", 0, -100);
