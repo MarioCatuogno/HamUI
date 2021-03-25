@@ -565,6 +565,8 @@ C_CVar.SetCVar("UnitNameFriendlySpecialNPCName", 1)
 C_CVar.SetCVar("showTargetOfTarget", 1)
 
 -- Raid and Party frames
+C_CVar.SetCVar("findYourselfInRaid", 1)
+C_CVar.SetCVar("findYourselfInRaidOnlyInCombat", 1) 
 C_CVar.SetCVar("useCompactPartyFrames", 1)
 C_CVar.SetCVar("raidFramesDisplayAggroHighlight", 1)
 C_CVar.SetCVar("raidFramesDisplayClassColor", 1)
