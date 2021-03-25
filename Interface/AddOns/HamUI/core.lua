@@ -77,7 +77,7 @@ setupUiActionBar:SetScript("OnEvent",function()
   ExtraActionButton1.style:SetAlpha(0);
   ExtraActionButton1.style:Hide();
 
-  -- Hide Icon buttons
+  -- Hide Icon buttons and background
   ActionButton1NormalTexture:SetAlpha(0);
   ActionButton2NormalTexture:SetAlpha(0);
   ActionButton3NormalTexture:SetAlpha(0);
