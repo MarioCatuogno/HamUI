@@ -5,7 +5,7 @@
 local setupUiActionBar = CreateFrame("Frame");
 setupUiActionBar:RegisterEvent("PLAYER_ENTERING_WORLD");
 setupUiActionBar:RegisterEvent("PLAYER_LOGIN");
-setupUiActionBar:RegisterEvent("ACTIONBAR_SLOT_CHANGED");
+setupUiActionBar:RegisterEvent("ACTIONBAR_SHOWGRID");
 setupUiActionBar:RegisterEvent("PET_BAR_UPDATE");
 setupUiActionBar:SetScript("OnEvent",function()
 
@@ -512,6 +512,7 @@ end);
 -- Set Variables
 local setupUiVariables = CreateFrame("Frame")
 setupUiVariables:RegisterEvent("PLAYER_LOGIN")
+setupUiVariables:RegisterEvent("PLAYER_ENTERING_WORLD")
 setupUiVariables:SetScript("OnEvent",function(self, event, ...)
 
 -- Action Bar
@@ -542,7 +543,7 @@ C_CVar.SetCVar("floatingCombatTextReactives", 0)
 -- Nameplates
 C_CVar.SetCVar('NameplatePersonalShowAlways',1)
 C_CVar.SetCVar('nameplateShowSelf',1)
-C_CVar.SetCVar("nameplateShowAll", 1)
+C_CVar.SetCVar("nameplateShowEnemies", 1)
 C_CVar.SetCVar("nameplateShowOnlyNames", 0)
 C_CVar.SetCVar("nameplateMotion", 1)
 C_CVar.SetCVar("UnitNameNPC", 0)
