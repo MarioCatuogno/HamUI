@@ -5,6 +5,8 @@
 local setupUiActionBar = CreateFrame("Frame");
 setupUiActionBar:RegisterEvent("PLAYER_ENTERING_WORLD");
 setupUiActionBar:RegisterEvent("PLAYER_LOGIN");
+setupUiActionBar:RegisterEvent("ACTIONBAR_SLOT_CHANGED");
+setupUiActionBar:RegisterEvent("PET_BAR_UPDATE");
 setupUiActionBar:SetScript("OnEvent",function()
 
   -- Hide Hotkeys and Macro
@@ -127,7 +129,7 @@ setupUiActionBar:SetScript("OnEvent",function()
   MultiBarRightButton10NormalTexture:SetAlpha(0);
   MultiBarRightButton11NormalTexture:SetAlpha(0);
   MultiBarRightButton12NormalTexture:SetAlpha(0);
-  
+
   MultiBarRightButton1FloatingBG:SetAlpha(0);
   MultiBarRightButton2FloatingBG:SetAlpha(0);
   MultiBarRightButton3FloatingBG:SetAlpha(0);
@@ -140,6 +142,43 @@ setupUiActionBar:SetScript("OnEvent",function()
   MultiBarRightButton10FloatingBG:SetAlpha(0);
   MultiBarRightButton11FloatingBG:SetAlpha(0);
   MultiBarRightButton12FloatingBG:SetAlpha(0);
+
+  MultiBarLeftButton1NormalTexture:SetAlpha(0);
+  MultiBarLeftButton2NormalTexture:SetAlpha(0);
+  MultiBarLeftButton3NormalTexture:SetAlpha(0);
+  MultiBarLeftButton4NormalTexture:SetAlpha(0);
+  MultiBarLeftButton5NormalTexture:SetAlpha(0);
+  MultiBarLeftButton6NormalTexture:SetAlpha(0);
+  MultiBarLeftButton7NormalTexture:SetAlpha(0);
+  MultiBarLeftButton8NormalTexture:SetAlpha(0);
+  MultiBarLeftButton9NormalTexture:SetAlpha(0);
+  MultiBarLeftButton10NormalTexture:SetAlpha(0);
+  MultiBarLeftButton11NormalTexture:SetAlpha(0);
+  MultiBarLeftButton12NormalTexture:SetAlpha(0);
+
+  MultiBarLeftButton1FloatingBG:SetAlpha(0);
+  MultiBarLeftButton2FloatingBG:SetAlpha(0);
+  MultiBarLeftButton3FloatingBG:SetAlpha(0);
+  MultiBarLeftButton4FloatingBG:SetAlpha(0);
+  MultiBarLeftButton5FloatingBG:SetAlpha(0);
+  MultiBarLeftButton6FloatingBG:SetAlpha(0);
+  MultiBarLeftButton7FloatingBG:SetAlpha(0);
+  MultiBarLeftButton8FloatingBG:SetAlpha(0);
+  MultiBarLeftButton9FloatingBG:SetAlpha(0);
+  MultiBarLeftButton10FloatingBG:SetAlpha(0);
+  MultiBarLeftButton11FloatingBG:SetAlpha(0);
+  MultiBarLeftButton12FloatingBG:SetAlpha(0);
+
+  PetActionButton1NormalTexture:SetAlpha(0);
+  PetActionButton2NormalTexture:SetAlpha(0);
+  PetActionButton3NormalTexture:SetAlpha(0);
+  PetActionButton4NormalTexture:SetAlpha(0);
+  PetActionButton5NormalTexture:SetAlpha(0);
+  PetActionButton6NormalTexture:SetAlpha(0);
+  PetActionButton7NormalTexture:SetAlpha(0);
+  PetActionButton8NormalTexture:SetAlpha(0);
+  PetActionButton9NormalTexture:SetAlpha(0);
+  PetActionButton10NormalTexture:SetAlpha(0);
 
   -- Move Zone Ability button
   ZoneAbilityFrame:ClearAllPoints();
