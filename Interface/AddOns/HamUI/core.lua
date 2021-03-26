@@ -295,6 +295,16 @@ ChatFrame1.ClearAllPoints = DoNothing
 ChatFrame1.SetPoint = DoNothing
 ;
 
+-- Hide Quick Join button
+QuickJoinToastButton:SetAlpha(0);
+QuickJoinToastButton:EnableMouse(false);
+QuickJoinToastButton:UnregisterAllEvents();
+
+-- Hide Chat Frame Channel button
+ChatFrameChannelButton:SetAlpha(0);
+ChatFrameChannelButton:EnableMouse(false);
+ChatFrameChannelButton:UnregisterAllEvents();
+
 --------------------------------------------------------------------------------
 -- COMMANDS
 --------------------------------------------------------------------------------
