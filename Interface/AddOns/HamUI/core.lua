@@ -385,8 +385,8 @@ setupUiFrames:SetScript("OnEvent",function()
 
   -- Fade In/Out Player frame
   PlayerFrame:SetAlpha(0)
-  PlayerFrame:HookScript("OnEnter", function(self) self:SetAlpha(1) end)
-  PlayerFrame:HookScript("OnLeave", function(self) self:SetAlpha(0) end)
+  PlayerFrame:HookScript("OnEnter", function(self) UIFrameFadeIn(self, 0.5 * (1-self:GetAlpha()), self:GetAlpha(), 1) end)
+  PlayerFrame:HookScript("OnLeave", function(self) UIFrameFadeIn(self, 0.5 * self:GetAlpha(), self:GetAlpha(), 0) end)
 
   -- Target frame
   TargetFrame:ClearAllPoints();
