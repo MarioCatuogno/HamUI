@@ -77,109 +77,6 @@ setupUiActionBar:SetScript("OnEvent",function()
   ExtraActionButton1.style:SetAlpha(0);
   ExtraActionButton1.style:Hide();
 
-  -- Hide Icon buttons and background
-  ActionButton1NormalTexture:SetAlpha(0);
-  ActionButton2NormalTexture:SetAlpha(0);
-  ActionButton3NormalTexture:SetAlpha(0);
-  ActionButton4NormalTexture:SetAlpha(0);
-  ActionButton5NormalTexture:SetAlpha(0);
-  ActionButton6NormalTexture:SetAlpha(0);
-  ActionButton7NormalTexture:SetAlpha(0);
-  ActionButton8NormalTexture:SetAlpha(0);
-  ActionButton9NormalTexture:SetAlpha(0);
-  ActionButton10NormalTexture:SetAlpha(0);
-  ActionButton11NormalTexture:SetAlpha(0);
-  ActionButton12NormalTexture:SetAlpha(0);
-
-  MultiBarBottomLeftButton1NormalTexture:SetAlpha(0);
-  MultiBarBottomLeftButton2NormalTexture:SetAlpha(0);
-  MultiBarBottomLeftButton3NormalTexture:SetAlpha(0);
-  MultiBarBottomLeftButton4NormalTexture:SetAlpha(0);
-  MultiBarBottomLeftButton5NormalTexture:SetAlpha(0);
-  MultiBarBottomLeftButton6NormalTexture:SetAlpha(0);
-  MultiBarBottomLeftButton7NormalTexture:SetAlpha(0);
-  MultiBarBottomLeftButton8NormalTexture:SetAlpha(0);
-  MultiBarBottomLeftButton9NormalTexture:SetAlpha(0);
-  MultiBarBottomLeftButton10NormalTexture:SetAlpha(0);
-  MultiBarBottomLeftButton11NormalTexture:SetAlpha(0);
-  MultiBarBottomLeftButton12NormalTexture:SetAlpha(0);
-
-  MultiBarBottomLeftButton1FloatingBG:SetAlpha(0);
-  MultiBarBottomLeftButton2FloatingBG:SetAlpha(0);
-  MultiBarBottomLeftButton3FloatingBG:SetAlpha(0);
-  MultiBarBottomLeftButton4FloatingBG:SetAlpha(0);
-  MultiBarBottomLeftButton5FloatingBG:SetAlpha(0);
-  MultiBarBottomLeftButton6FloatingBG:SetAlpha(0);
-  MultiBarBottomLeftButton7FloatingBG:SetAlpha(0);
-  MultiBarBottomLeftButton8FloatingBG:SetAlpha(0);
-  MultiBarBottomLeftButton9FloatingBG:SetAlpha(0);
-  MultiBarBottomLeftButton10FloatingBG:SetAlpha(0);
-  MultiBarBottomLeftButton11FloatingBG:SetAlpha(0);
-  MultiBarBottomLeftButton12FloatingBG:SetAlpha(0);
-
-  MultiBarRightButton1NormalTexture:SetAlpha(0);
-  MultiBarRightButton2NormalTexture:SetAlpha(0);
-  MultiBarRightButton3NormalTexture:SetAlpha(0);
-  MultiBarRightButton4NormalTexture:SetAlpha(0);
-  MultiBarRightButton5NormalTexture:SetAlpha(0);
-  MultiBarRightButton6NormalTexture:SetAlpha(0);
-  MultiBarRightButton7NormalTexture:SetAlpha(0);
-  MultiBarRightButton8NormalTexture:SetAlpha(0);
-  MultiBarRightButton9NormalTexture:SetAlpha(0);
-  MultiBarRightButton10NormalTexture:SetAlpha(0);
-  MultiBarRightButton11NormalTexture:SetAlpha(0);
-  MultiBarRightButton12NormalTexture:SetAlpha(0);
-
-  MultiBarRightButton1FloatingBG:SetAlpha(0);
-  MultiBarRightButton2FloatingBG:SetAlpha(0);
-  MultiBarRightButton3FloatingBG:SetAlpha(0);
-  MultiBarRightButton4FloatingBG:SetAlpha(0);
-  MultiBarRightButton5FloatingBG:SetAlpha(0);
-  MultiBarRightButton6FloatingBG:SetAlpha(0);
-  MultiBarRightButton7FloatingBG:SetAlpha(0);
-  MultiBarRightButton8FloatingBG:SetAlpha(0);
-  MultiBarRightButton9FloatingBG:SetAlpha(0);
-  MultiBarRightButton10FloatingBG:SetAlpha(0);
-  MultiBarRightButton11FloatingBG:SetAlpha(0);
-  MultiBarRightButton12FloatingBG:SetAlpha(0);
-
-  MultiBarLeftButton1NormalTexture:SetAlpha(0);
-  MultiBarLeftButton2NormalTexture:SetAlpha(0);
-  MultiBarLeftButton3NormalTexture:SetAlpha(0);
-  MultiBarLeftButton4NormalTexture:SetAlpha(0);
-  MultiBarLeftButton5NormalTexture:SetAlpha(0);
-  MultiBarLeftButton6NormalTexture:SetAlpha(0);
-  MultiBarLeftButton7NormalTexture:SetAlpha(0);
-  MultiBarLeftButton8NormalTexture:SetAlpha(0);
-  MultiBarLeftButton9NormalTexture:SetAlpha(0);
-  MultiBarLeftButton10NormalTexture:SetAlpha(0);
-  MultiBarLeftButton11NormalTexture:SetAlpha(0);
-  MultiBarLeftButton12NormalTexture:SetAlpha(0);
-
-  MultiBarLeftButton1FloatingBG:SetAlpha(0);
-  MultiBarLeftButton2FloatingBG:SetAlpha(0);
-  MultiBarLeftButton3FloatingBG:SetAlpha(0);
-  MultiBarLeftButton4FloatingBG:SetAlpha(0);
-  MultiBarLeftButton5FloatingBG:SetAlpha(0);
-  MultiBarLeftButton6FloatingBG:SetAlpha(0);
-  MultiBarLeftButton7FloatingBG:SetAlpha(0);
-  MultiBarLeftButton8FloatingBG:SetAlpha(0);
-  MultiBarLeftButton9FloatingBG:SetAlpha(0);
-  MultiBarLeftButton10FloatingBG:SetAlpha(0);
-  MultiBarLeftButton11FloatingBG:SetAlpha(0);
-  MultiBarLeftButton12FloatingBG:SetAlpha(0);
-
-  PetActionButton1NormalTexture:SetAlpha(0);
-  PetActionButton2NormalTexture:SetAlpha(0);
-  PetActionButton3NormalTexture:SetAlpha(0);
-  PetActionButton4NormalTexture:SetAlpha(0);
-  PetActionButton5NormalTexture:SetAlpha(0);
-  PetActionButton6NormalTexture:SetAlpha(0);
-  PetActionButton7NormalTexture:SetAlpha(0);
-  PetActionButton8NormalTexture:SetAlpha(0);
-  PetActionButton9NormalTexture:SetAlpha(0);
-  PetActionButton10NormalTexture:SetAlpha(0);
-
   -- Move Zone Ability button
   ZoneAbilityFrame:ClearAllPoints();
   ZoneAbilityFrame:SetPoint("TOP", UIParent, "TOP", 0, -100);
@@ -371,7 +268,7 @@ setupUiFrames:SetScript("OnEvent",function()
   -- Player frame
   PlayerFrame:ClearAllPoints();
   PlayerFrame:SetUserPlaced(true);
-  PlayerFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 0);
+  PlayerFrame:SetPoint("CENTER", UIParent, "CENTER", -250, -145);
   PlayerFrame.maxBuffs = 0;
   PlayerFrame.maxDebuffs = 0;
   PlayerFrameFlash:Hide();
@@ -383,17 +280,12 @@ setupUiFrames:SetScript("OnEvent",function()
   PlayerRestIcon:Hide();
   PlayerHitIndicator:Hide();
 
-  -- Fade In/Out Player frame
-  PlayerFrame:SetAlpha(0)
-  PlayerFrame:HookScript("OnEnter", function(self) UIFrameFadeIn(self, 0.5 * (1-self:GetAlpha()), self:GetAlpha(), 1) end)
-  PlayerFrame:HookScript("OnLeave", function(self) UIFrameFadeIn(self, 0.5 * self:GetAlpha(), self:GetAlpha(), 0) end)
-
   -- Target frame
   TargetFrame:ClearAllPoints();
   TargetFrame:SetUserPlaced(true);
   TargetFrame:SetPoint("CENTER", UIParent, "CENTER", 250, -145);
   TargetFrame.maxBuffs = 0;
-  TargetFrame.maxDebuffs = 0;
+  TargetFrame.maxDebuffs = 4;
   TargetFrameFlash:Hide();
   FocusFrameTextureFramePrestigeBadge:SetAlpha(0);
   FocusFrameTextureFramePrestigePortrait:SetAlpha(0);
@@ -553,7 +445,7 @@ C_CVar.SetCVar("floatingCombatTextReactives", 0)
 -- Nameplate
 C_CVar.SetCVar('nameplateTargetBehindMaxDistance',15)
 C_CVar.SetCVar('nameplateTargetRadialPosition',0)
-C_CVar.SetCVar('NameplatePersonalShowAlways',1)
+C_CVar.SetCVar('NameplatePersonalShowAlways',0)
 C_CVar.SetCVar('nameplateMaxDistance', 40)
 C_CVar.SetCVar('nameplateShowSelf',1)
 C_CVar.SetCVar("nameplateShowEnemies", 1)
