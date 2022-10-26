@@ -9,23 +9,6 @@ setupUiActionBar:RegisterEvent("ACTIONBAR_SHOWGRID");
 setupUiActionBar:RegisterEvent("PET_BAR_UPDATE");
 setupUiActionBar:SetScript("OnEvent",function()
 
-  -- Hide Hotkeys and Macro
-  for i=1, 12 do
-
-    _G["ActionButton"..i.."HotKey"]:SetAlpha(0) -- main bar
-    _G["MultiBarBottomRightButton"..i.."HotKey"]:SetAlpha(0) -- bottom right bar
-    _G["MultiBarBottomLeftButton"..i.."HotKey"]:SetAlpha(0) -- bottom left bar
-    _G["MultiBarRightButton"..i.."HotKey"]:SetAlpha(0) -- right bar
-    _G["MultiBarLeftButton"..i.."HotKey"]:SetAlpha(0) -- left bar
-
-    _G["ActionButton"..i.."Name"]:SetAlpha(0) -- main bar
-    _G["MultiBarBottomRightButton"..i.."Name"]:SetAlpha(0) -- bottom right bar
-    _G["MultiBarBottomLeftButton"..i.."Name"]:SetAlpha(0) -- bottom left bar
-    _G["MultiBarRightButton"..i.."Name"]:SetAlpha(0) -- right bar
-    _G["MultiBarLeftButton"..i.."Name"]:SetAlpha(0) -- left bar
-
-  end;
-
   -- Hide Micro Menu bar
   MicroButtonAndBagsBar:Hide()
   MicroButtonAndBagsBar:HookScript("OnShow",function(self) self:Hide() end)
@@ -54,103 +37,6 @@ setupUiActionBar:SetScript("OnEvent",function()
   function MainMenuMicroButton_AreAlertsEnabled()
     return false
   end;
-
-  -- Hide Main Menu bar art
-  local b1 = MainMenuBarArtFrameBackground b1:UnregisterAllEvents() b1:SetScript("OnShow", b1.Hide) b1:Hide();
-  local b2 = ActionBarUpButton b2:UnregisterAllEvents() b2:SetScript("OnShow", b2.Hide) b2:Hide();
-  local b3 = ActionBarDownButton b3:UnregisterAllEvents() b3:SetScript("OnShow", b3.Hide) b3:Hide();
-  local b4 = StatusTrackingBarManager b4:UnregisterAllEvents() b4:SetScript("OnShow", b4.Hide) b4:Hide();
-  MainMenuBarArtFrame.LeftEndCap:Hide();
-  MainMenuBarArtFrame.RightEndCap:Hide();
-  MainMenuBarArtFrame.PageNumber:Hide();
-  SlidingActionBarTexture0:SetAlpha(0);
-  SlidingActionBarTexture1:SetAlpha(0);
-  StanceBarLeft:SetAlpha(0);
-  StanceBarRight:SetAlpha(0);
-  StanceBarMiddle:SetAlpha(0);
-  StanceButton1NormalTexture2:SetAlpha(0);
-
-  -- Move Extra Action button
-  ExtraActionButton1:ClearAllPoints();
-  ExtraActionButton1:SetPoint("TOP", UIParent, "TOP", 0, -100);
-  ExtraActionButton1:SetScale(0.9);
-  ExtraActionButton1.style:SetAlpha(0);
-  ExtraActionButton1.style:Hide();
-
-  -- Move Zone Ability button
-  ZoneAbilityFrame:ClearAllPoints();
-  ZoneAbilityFrame:SetPoint("TOP", UIParent, "TOP", 0, -100);
-  ZoneAbilityFrame:SetScale(0.9);
-  ZoneAbilityFrame.Style:SetAlpha(0);
-  ZoneAbilityFrame.Style:Hide();
-
-  -- Move Player Power Bar Alt
-  PlayerPowerBarAlt:ClearAllPoints();
-  PlayerPowerBarAlt:SetPoint("TOP", UIParent, "TOP", 0, -30);
-
-end);
-
---------------------------------------------------------------------------------
--- ALIGN
---------------------------------------------------------------------------------
-
--- Align (eAlign, credit: https://www.curseforge.com/wow/addons/ealign-updated)
-SLASH_EA1 = "/align"
-local f
-SlashCmdList["EA"] = function()
-if f then
-  f:Hide()
-  f = nil    
-else
-  f = CreateFrame('Frame', nil, UIParent) 
-  f:SetAllPoints(UIParent)
-  local w = GetScreenWidth() / 64
-  local h = GetScreenHeight() / 36
-  for i = 0, 64 do
-    local t = f:CreateTexture(nil, 'BACKGROUND')
-    if i == 32 then
-      t:SetColorTexture(1, 1, 0, 0.5)
-    else
-      t:SetColorTexture(1, 1, 1, 0.15)
-    end
-    t:SetPoint('TOPLEFT', f, 'TOPLEFT', i * w - 1, 0)
-    t:SetPoint('BOTTOMRIGHT', f, 'BOTTOMLEFT', i * w + 1, 0)
-  end
-  for i = 0, 36 do
-    local t = f:CreateTexture(nil, 'BACKGROUND')
-    if i == 18 then
-      t:SetColorTexture(1, 1, 0, 0.5)
-    else
-      t:SetColorTexture(1, 1, 1, 0.15)
-    end
-    t:SetPoint('TOPLEFT', f, 'TOPLEFT', 0, -i * h + 1)
-    t:SetPoint('BOTTOMRIGHT', f, 'TOPRIGHT', 0, -i * h - 1)
-  end  
-end
-end;
-
---------------------------------------------------------------------------------
--- CAST BAR
---------------------------------------------------------------------------------
-
-local setupUiCastBar = CreateFrame("Frame");
-setupUiCastBar:RegisterEvent("PLAYER_ENTERING_WORLD");
-setupUiCastBar:RegisterEvent("PLAYER_LOGIN");
-setupUiCastBar:SetScript("OnEvent",function()
-
--- Player Cast Bar position
-CastingBarFrame:ClearAllPoints()
-CastingBarFrame:SetPoint("CENTER",UIParent,"CENTER", 0, -340)
-CastingBarFrame:SetFrameStrata("BACKGROUND")
-CastingBarFrame.SetPoint = function() end
-CastingBarFrame:SetScale(1.0)
-
--- Player Set in-game target cast bar position
-TargetFrameSpellBar:ClearAllPoints()
-TargetFrameSpellBar:SetPoint("CENTER", TargetFrame, "TOP", -10, 10)
-TargetFrameSpellBar.SetPoint = function() end
-TargetFrameSpellBar:SetFrameStrata("BACKGROUND")
-TargetFrameSpellBar:SetScale(1.0)
 
 end);
 
@@ -181,22 +67,6 @@ CHAT_FRAME_TAB_SELECTED_NOMOUSE_ALPHA = 0
 CHAT_FRAME_TAB_NORMAL_MOUSEOVER_ALPHA = 0.5
 CHAT_FRAME_TAB_NORMAL_NOMOUSE_ALPHA = 0
 
--- Position Chat frame
-ChatFrame1:ClearAllPoints();
-ChatFrame1:SetPoint('BOTTOMLEFT', UIParent, 'BOTTOMLEFT', 10, 10);
-ChatFrame1:SetWidth(150);
-ChatFrame1:SetHeight(121);
-
-local function DoNothing() end
-ChatFrame1.ClearAllPoints = DoNothing
-ChatFrame1.SetPoint = DoNothing
-;
-
--- Hide Quick Join button
-QuickJoinToastButton:SetAlpha(0);
-QuickJoinToastButton:EnableMouse(false);
-QuickJoinToastButton:UnregisterAllEvents();
-
 -- Hide Chat Frame Channel button
 ChatFrameChannelButton:SetAlpha(0);
 ChatFrameChannelButton:EnableMouse(false);
@@ -215,31 +85,6 @@ SlashCmdList["CHECKROLE"] = function() InitiateRolePoll() end
 SLASH_CHECKROLE1 = '/cr'
 
 --------------------------------------------------------------------------------
--- MAP
---------------------------------------------------------------------------------
-
-local setupUiMiniMap = CreateFrame("Frame");
-setupUiMiniMap:RegisterEvent("PLAYER_ENTERING_WORLD");
-setupUiMiniMap:RegisterEvent("PLAYER_LOGIN");
-setupUiMiniMap:SetScript("OnEvent",function()
-
--- Hide minimap buttons
-MinimapZoomIn:Hide()
-MinimapZoomOut:Hide()
-
--- Enable zoom-in/zoom-out with mouse wheel
-Minimap:EnableMouseWheel(true)
-Minimap:SetScript('OnMouseWheel', function(self, delta)
-if delta > 0 then
-  Minimap_ZoomIn()
-else
-  Minimap_ZoomOut()
-end
-end)
-
-end);
-
---------------------------------------------------------------------------------
 -- UNIT FRAMES
 --------------------------------------------------------------------------------
 -- Remove damage and healing text in portraits
@@ -247,139 +92,9 @@ COMBATFEEDBACK_FADEINTIME = 0
 COMBATFEEDBACK_HOLDTIME = 0 
 COMBATFEEDBACK_FADEOUTTIME = 0
 
-local setupUiFrames = CreateFrame("Frame");
-setupUiFrames:RegisterEvent("PLAYER_ENTERING_WORLD");
-setupUiFrames:RegisterEvent("PLAYER_LOGIN");
-setupUiFrames:SetScript("OnEvent",function()
-
-  -- Focus Frame
-  FocusFrame:ClearAllPoints();
-  FocusFrame:SetUserPlaced(true);
-  FocusFrame:SetPoint("RIGHT", UIParent, "RIGHT", -400, 290);
-  FocusFrame.maxBuffs = 0;
-  FocusFrame.maxDebuffs  = 0;
-  FocusFrameFlash:Hide();
-  FocusFrameTextureFramePVPIcon:SetAlpha(0);
-
-  -- Pet Frame
-  PetFrame:ClearAllPoints();
-  PetFrame:Hide();
-
-  -- Player frame
-  PlayerFrame:ClearAllPoints();
-  PlayerFrame:SetUserPlaced(true);
-  PlayerFrame:SetPoint("CENTER", UIParent, "CENTER", -250, -145);
-  PlayerFrame.maxBuffs = 0;
-  PlayerFrame.maxDebuffs = 0;
-  PlayerFrameFlash:Hide();
-  PlayerPrestigeBadge:SetAlpha(0);
-  PlayerPrestigePortrait:SetAlpha(0);
-  PlayerPVPIcon:SetAlpha(0);
-  PlayerLeaderIcon:SetAlpha(0);
-  PlayerFrameRoleIcon:SetAlpha(0);
-  PlayerRestIcon:Hide();
-  PlayerHitIndicator:Hide();
-
-  -- Target frame
-  TargetFrame:ClearAllPoints();
-  TargetFrame:SetUserPlaced(true);
-  TargetFrame:SetPoint("CENTER", UIParent, "CENTER", 250, -145);
-  TargetFrame.maxBuffs = 0;
-  TargetFrame.maxDebuffs = 4;
-  TargetFrameFlash:Hide();
-  FocusFrameTextureFramePrestigeBadge:SetAlpha(0);
-  FocusFrameTextureFramePrestigePortrait:SetAlpha(0);
-  TargetFrameTextureFramePVPIcon:SetAlpha(0);
-  TargetFrameTextureFrameLeaderIcon:SetAlpha(0);
-
-  -- Hide Rest glow
-  hooksecurefunc("PlayerFrame_UpdateStatus", function()
-    if IsResting("player") then
-      PlayerStatusTexture:Hide()
-      PlayerRestGlow:Hide()
-      PlayerStatusGlow:Hide()
-    elseif PlayerFrame.inCombat then
-      PlayerStatusTexture:Hide()
-      PlayerAttackGlow:Hide()
-      PlayerStatusGlow:Hide()
-    end
-  end)
-
-  -- Hide names background
-  hooksecurefunc("TargetFrame_CheckFaction", function(self)
-    if ( not UnitPlayerControlled(self.unit)) then
-      self.nameBackground:SetVertexColor(0, 0, 0, 0);
-    if ( self.portrait ) then
-      self.portrait:SetVertexColor(1.0, 1.0, 1.0, 1.0);
-    end
-    else
-      self.nameBackground:SetVertexColor(0, 0, 0, 0);
-        if ( self.portrait ) then
-          self.portrait:SetVertexColor(1.0, 1.0, 1.0);
-        end
-      end
-    end)
-
-  -- Hide Power Bar
-  ComboPointPlayerFrame:Hide()
-  ComboPointPlayerFrame:HookScript("OnShow",function(self) self:Hide() end)
-  MageArcaneChargesFrame:Hide()
-  MageArcaneChargesFrame:HookScript("OnShow",function(self) self:Hide() end)
-  MonkHarmonyBarFrame:Hide()
-  MonkHarmonyBarFrame:HookScript("OnShow",function(self) self:Hide() end)
-  PaladinPowerBarFrame:Hide()
-  PaladinPowerBarFrame:HookScript("OnShow",function(self) self:Hide() end)
-  PriestBarFrame:Hide()
-  PriestBarFrame:HookScript("OnShow",function(self) self:Hide() end)
-  RuneFrame:Hide()
-  RuneFrame:HookScript("OnShow",function(self) self:Hide() end)
-  WarlockPowerFrame:Hide()
-  WarlockPowerFrame:HookScript("OnShow",function(self) self:Hide() end)
-
-  -- Hide Group indicators
-  PlayerFrameGroupIndicator:Hide()
-  PlayerFrameGroupIndicator:HookScript("OnShow",function(self) self:Hide() end)
-
-  -- Colour health bar
-  local function colour(statusbar, unit)
-    local _, class, c
-    if UnitIsPlayer(unit) and UnitIsConnected(unit) and unit == statusbar.unit and UnitClass(unit) then
-    _, class = UnitClass(unit)
-    c = CUSTOM_CLASS_COLORS and CUSTOM_CLASS_COLORS[class] or RAID_CLASS_COLORS[class]
-    statusbar:SetStatusBarColor(c.r, c.g, c.b)
-    end
-  end
-  hooksecurefunc("UnitFrameHealthBar_Update", colour)
-  hooksecurefunc("HealthBar_OnValueChanged", function(self)
-    colour(self, self.unit)
-  end)
-
-  -- Use Class icon portrait
-  hooksecurefunc("UnitFramePortrait_Update",function(self)
-    if self.portrait then
-      if UnitIsPlayer(self.unit) then                
-        local t = CLASS_ICON_TCOORDS[select(2, UnitClass(self.unit))]
-          if t then
-            self.portrait:SetTexture("Interface\\TargetingFrame\\UI-Classes-Circles")
-            self.portrait:SetTexCoord(unpack(t))
-          end
-      else
-          self.portrait:SetTexCoord(0,1,0,1)
-          end
-      end
-  end)
-
-end);
-
 --------------------------------------------------------------------------------
 -- TOOLTIPS
 --------------------------------------------------------------------------------
-
--- Set in-game tooltip position
-hooksecurefunc("GameTooltip_SetDefaultAnchor", function (tooltip, parent)
-tooltip:SetOwner(parent, "ANCHOR_NONE");
-tooltip:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -40, 60);
-end)
 
 -- Show Spell ID
 GameTooltip:HookScript("OnTooltipSetSpell", function(self)
@@ -443,31 +158,35 @@ C_CVar.SetCVar("floatingCombatTextLowManaHealth", 0)
 C_CVar.SetCVar("floatingCombatTextReactives", 0)
 
 -- Nameplate
+C_CVar.SetCVar('nameplateMaxDistance', 60)
+C_CVar.SetCVar('nameplateOccludedAlphaMult',0.3)
+C_CVar.SetCVar('NameplatePersonalShowAlways',0)
+C_CVar.SetCVar('nameplateSelectedScale',1.4)
+C_CVar.SetCVar('nameplateShowSelf',1)
 C_CVar.SetCVar('nameplateTargetBehindMaxDistance',15)
 C_CVar.SetCVar('nameplateTargetRadialPosition',0)
-C_CVar.SetCVar('NameplatePersonalShowAlways',0)
-C_CVar.SetCVar('nameplateMaxDistance', 40)
-C_CVar.SetCVar('nameplateShowSelf',1)
-C_CVar.SetCVar("nameplateShowEnemies", 1)
-C_CVar.SetCVar("nameplateShowOnlyNames", 0)
 C_CVar.SetCVar("nameplateMotion", 1)
-C_CVar.SetCVar("UnitNameNPC", 0)
-C_CVar.SetCVar("UnitNameInteractiveNPC", 0)
-C_CVar.SetCVar("UnitNameFriendlyTotemName", 0)
-C_CVar.SetCVar("UnitNameFriendlyGuardianName", 0)
-C_CVar.SetCVar("UnitNameFriendlyPetName", 0)
-C_CVar.SetCVar("UnitNamePlayerPVPTitle", 0)
-C_CVar.SetCVar("UnitNamePlayerGuild", 0)
-C_CVar.SetCVar("UnitNameGuildTitle", 0)
-C_CVar.SetCVar("UnitNameOwn", 0)
-C_CVar.SetCVar("UnitNameEnemyPlayerName", 1)
-C_CVar.SetCVar("UnitNameEnemyPetName", 1)
-C_CVar.SetCVar("UnitNameEnemyGuardianName", 1)
-C_CVar.SetCVar("UnitNameEnemyTotemName", 1)
-C_CVar.SetCVar("UnitNameFriendlySpecialNPCName", 1)
+C_CVar.SetCVar("nameplateShowEnemies", 1)
+C_CVar.SetCVar("nameplateShowEnemyPets", 1)
+C_CVar.SetCVar("nameplateShowEnemyTotems", 1)
+C_CVar.SetCVar("nameplateShowOnlyNames", 0)
 
 -- Unit Frames
-C_CVar.SetCVar("showTargetOfTarget", 1)
+C_CVar.SetCVar("showTargetOfTarget", 0)
+C_CVar.SetCVar("UnitNameEnemyGuardianName", 1)
+C_CVar.SetCVar("UnitNameEnemyPetName", 1)
+C_CVar.SetCVar("UnitNameEnemyPlayerName", 1)
+C_CVar.SetCVar("UnitNameEnemyTotemName", 1)
+C_CVar.SetCVar("UnitNameFriendlyGuardianName", 0)
+C_CVar.SetCVar("UnitNameFriendlyPetName", 0)
+C_CVar.SetCVar("UnitNameFriendlySpecialNPCName", 1)
+C_CVar.SetCVar("UnitNameFriendlyTotemName", 0)
+C_CVar.SetCVar("UnitNameGuildTitle", 0)
+C_CVar.SetCVar("UnitNameInteractiveNPC", 0)
+C_CVar.SetCVar("UnitNameNPC", 0)
+C_CVar.SetCVar("UnitNameOwn", 0)
+C_CVar.SetCVar("UnitNamePlayerGuild", 0)
+C_CVar.SetCVar("UnitNamePlayerPVPTitle", 0)
 
 -- Raid and Party frames
 C_CVar.SetCVar("findYourselfInRaid", 1)
@@ -484,21 +203,26 @@ C_CVar.SetCVar("raidOptionKeepGroupsTogether", 1)
 
 -- Toast
 C_CVar.SetCVar("showToastBroadcast", 0)
-C_CVar.SetCVar("showToastFriendRequest", 0)
+C_CVar.SetCVar("showToastFriendRequest", 1)
 C_CVar.SetCVar("showToastOffline", 0)
 C_CVar.SetCVar("showToastOnline", 0)
 C_CVar.SetCVar("showToastWindow", 0)
 
+-- Minimap
+C_CVar.SetCVar("minimapInsideZoom", 2)
+
 -- Various
-C_CVar.SetCVar("autoLootDefault", 1)
 C_CVar.SetCVar("alwaysCompareItems", 1)
-C_CVar.SetCVar("lootUnderMouse", 0)
-C_CVar.SetCVar("cursorSizePreferred", 0)
-C_CVar.SetCVar("showTutorials", 0)
-C_CVar.SetCVar("movieSubtitle", 1)
-C_CVar.SetCVar("screenEdgeFlash", 0)
 C_CVar.SetCVar("autoClearAFK", 1)
 C_CVar.SetCVar("autoDismountFlying", 0)
+C_CVar.SetCVar("autoLootDefault", 1)
+C_CVar.SetCVar("cursorSizePreferred", 0)
+C_CVar.SetCVar("lootUnderMouse", 0)
+C_CVar.SetCVar("maxFPS", 60)
+C_CVar.SetCVar("maxFPSBk", 8)
+C_CVar.SetCVar("movieSubtitle", 1)
+C_CVar.SetCVar("screenEdgeFlash", 0)
+C_CVar.SetCVar("showTutorials", 0)
 C_CVar.SetCVar("synchronizeBindings", 1)
 C_CVar.SetCVar("synchronizeConfig", 1)
 C_CVar.SetCVar("synchronizeMacros", 1)
