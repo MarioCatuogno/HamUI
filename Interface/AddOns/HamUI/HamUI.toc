@@ -1,7 +1,7 @@
-## Interface: 90200
+## Interface: 100000
 ## Title: |cff44ABDBHam|rUI
 ## Notes: Enhanced Blizzard default UI
-## Version: 0.6.2
+## Version: 0.7.0
 ## Author: Panzarotto
 
 core.lua
