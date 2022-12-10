@@ -2,44 +2,6 @@
 -- ACTION BAR
 --------------------------------------------------------------------------------
 
-local setupUiActionBar = CreateFrame("Frame");
-setupUiActionBar:RegisterEvent("PLAYER_ENTERING_WORLD");
-setupUiActionBar:RegisterEvent("PLAYER_LOGIN");
-setupUiActionBar:RegisterEvent("ACTIONBAR_SHOWGRID");
-setupUiActionBar:RegisterEvent("PET_BAR_UPDATE");
-setupUiActionBar:SetScript("OnEvent",function()
-
-  -- Hide Micro Menu bar
-  MicroButtonAndBagsBar:Hide()
-  MicroButtonAndBagsBar:HookScript("OnShow",function(self) self:Hide() end)
-  CharacterMicroButton:Hide()
-  CharacterMicroButton:HookScript("OnShow",function(self) self:Hide() end)
-  SpellbookMicroButton:Hide()
-  SpellbookMicroButton:HookScript("OnShow",function(self) self:Hide() end)
-  TalentMicroButton:Hide()
-  TalentMicroButton:HookScript("OnShow",function(self) self:Hide() end)
-  AchievementMicroButton:Hide()
-  AchievementMicroButton:HookScript("OnShow",function(self) self:Hide() end)
-  QuestLogMicroButton:Hide()
-  QuestLogMicroButton:HookScript("OnShow",function(self) self:Hide() end)
-  GuildMicroButton:Hide()
-  GuildMicroButton:HookScript("OnShow",function(self) self:Hide() end)
-  LFDMicroButton:Hide()
-  LFDMicroButton:HookScript("OnShow",function(self) self:Hide() end)
-  CollectionsMicroButton:Hide()
-  CollectionsMicroButton:HookScript("OnShow",function(self) self:Hide() end)
-  EJMicroButton:Hide()
-  EJMicroButton:HookScript("OnShow",function(self) self:Hide() end)
-  StoreMicroButton:Hide()
-  StoreMicroButton:HookScript("OnShow",function(self) self:Hide() end)
-
-  -- Hide Micro Menu bar popup
-  function MainMenuMicroButton_AreAlertsEnabled()
-    return false
-  end;
-
-end);
-
 --------------------------------------------------------------------------------
 -- CHAT
 --------------------------------------------------------------------------------
@@ -70,7 +32,6 @@ CHAT_FRAME_TAB_NORMAL_NOMOUSE_ALPHA = 0
 -- Hide Chat Frame Channel button
 ChatFrameChannelButton:SetAlpha(0);
 ChatFrameChannelButton:EnableMouse(false);
-ChatFrameChannelButton:UnregisterAllEvents();
 
 --------------------------------------------------------------------------------
 -- COMMANDS
@@ -97,30 +58,72 @@ COMBATFEEDBACK_FADEOUTTIME = 0
 --------------------------------------------------------------------------------
 
 -- Show Spell ID
-GameTooltip:HookScript("OnTooltipSetSpell", function(self)
-local name, id = self:GetSpell()
-if id then
-  self:AddLine("    ")
-  self:AddLine("ID: " .. tostring(id), 1, 1, 1)
+local TooltipInfo, TooltipProcessor, TooltipUtil = C_TooltipInfo, TooltipDataProcessor, TooltipUtil
+
+local function CheckForbidden(tooltip)
+    return tooltip:IsForbidden()
 end
-end)
+
+local function AddLine(tooltip, id, type)
+    if not tooltip and id then return end
+
+    tooltip:AddLine(" ")
+    tooltip:AddLine(type.."ID: ".."|cffFFFFCF"..id.."|r", 1, 1, 1)
+end
+
+local function ItemID(tooltip, data)
+    if CheckForbidden(tooltip) then return end
+
+    -- Get id
+    local itemID = data.id
+    -- Add line
+    AddLine(tooltip, itemID, "Item")
+end
+
+local function SpellID(tooltip, data, newHook)
+    if CheckForbidden(tooltip) then return end
+
+    -- Get id
+    local spellID = data.id
+    -- Add line
+    AddLine(tooltip, spellID, "Spell")
+end
+
+local function AuraID(tooltip, data)
+    if CheckForbidden(tooltip) then return end
+
+    -- Get id
+    local auraID = data.id
+    -- Add line
+    AddLine(tooltip, auraID, "Aura")
+end
+
+local function UnitID(tooltip, data)
+    if CheckForbidden(tooltip) then return end
+
+    -- Assign values otherwise data will be nil
+    TooltipUtil.SurfaceArgs(data)
+    -- Get guid
+    local unitUID = data.guid
+    -- Extract id from guid
+    local unitID = select(6, strsplit("-", unitUID))
+    -- Check if id exists, this will be false on players
+    if not unitID then return end
+    -- Add line
+    AddLine(tooltip, unitID, "Unit")
+end
+
+-- Register callbacks
+if TooltipDataProcessor then
+    TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, ItemID)
+    TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Spell, SpellID)
+    TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.UnitAura, AuraID)
+    TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, UnitID)
+end
 
 --------------------------------------------------------------------------------
 -- RAID AND PARTY
 --------------------------------------------------------------------------------
-
--- Hide server in Raid Frame
-hooksecurefunc("CompactUnitFrame_UpdateName",function(frame)
-if frame.optionTable.displayName then
-    frame.name:SetText((UnitName(frame.unit)));
-    frame.name:Show()
-end
-end);
-
--- Hide group names in Raid Frame
-hooksecurefunc("CompactRaidGroup_InitializeForGroup", function(frame)
-frame.title:SetText("");
-end);
 
 --------------------------------------------------------------------------------
 -- VARIABLES
@@ -156,6 +159,10 @@ C_CVar.SetCVar("floatingCombatTextCombatDamageDirectionalScale", 0)
 C_CVar.SetCVar("floatingCombatTextCombatHealingAbsorbTarget", 0)
 C_CVar.SetCVar("floatingCombatTextLowManaHealth", 0)
 C_CVar.SetCVar("floatingCombatTextReactives", 0)
+
+-- Graphics
+C_CVar.SetCVar("renderscale", 0.999)
+C_CVar.SetCVar("ResampleAlwaysSharpen", 1)
 
 -- Nameplate
 C_CVar.SetCVar('nameplateMaxDistance', 60)
@@ -233,18 +240,3 @@ end);
 --------------------------------------------------------------------------------
 -- VARIOUS
 --------------------------------------------------------------------------------
-
--- Automatically sell grey icons
-local sellGreyIcons = CreateFrame("Frame")
-sellGreyIcons:RegisterEvent("MERCHANT_SHOW")
-sellGreyIcons:SetScript("OnEvent", function()  
-  local bag, slot
-  for bag = 0, 4 do
-    for slot = 0, GetContainerNumSlots(bag) do
-      local link = GetContainerItemLink(bag, slot)
-      if link and (select(3, GetItemInfo(link)) == 0) then
-        UseContainerItem(bag, slot)
-      end
-    end
-  end
-end);
