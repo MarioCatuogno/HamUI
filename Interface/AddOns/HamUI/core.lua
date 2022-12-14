@@ -53,6 +53,14 @@ COMBATFEEDBACK_FADEINTIME = 0
 COMBATFEEDBACK_HOLDTIME = 0 
 COMBATFEEDBACK_FADEOUTTIME = 0
 
+-- Remove buffs/debuffs from target frame
+TargetFrame.maxBuffs = 0;
+TargetFrame.maxDebuffs = 5;
+
+-- Hide Reputation background for target and focus frames
+TargetFrame.TargetFrameContent.TargetFrameContentMain.ReputationColor:SetTexture(nil)
+FocusFrame.TargetFrameContent.TargetFrameContentMain.ReputationColor:SetTexture(nil)
+
 --------------------------------------------------------------------------------
 -- TOOLTIPS
 --------------------------------------------------------------------------------
