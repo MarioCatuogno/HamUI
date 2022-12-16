@@ -1,54 +1,83 @@
-# Monk Macros
-Macros for Monk specializations.
+#showtooltip
+/cast [target=focus,exists] Paralysis;Paralysis
 
-## Shared
-```
-#showtooltip Effuse
-/cast [@mouseover, exists, noharm, nodead][@target, exists, noharm, nodead][] Effuse
-```
-```
-#showtooltip Tiger Palm
-/startattack
-/cast Tiger Palm
-```
+#showtooltip
+/cast [mod:shift,@cursor][@player] Bonedust Brew
 
-## Brewmaster
-```
+#showtooltip
+/cast Purifying Brew
+/cast [mod:shift] Celestial Brew
+/cast [mod:shift][known:115399] Black Ox Brew
+
+#showtooltip
+/cast [known:132578][nopet] Invoke Niuzao, the Black Ox
+/cast [known:322188][nopet] Invoke Yu'lon, the Jade Serpent
+/cast [known:325197][nopet] Invoke Chi-Ji, the Red Crane
+/cast [known:123904][nopet] Invoke Xuen, the White Tiger
+
+#showtooltip
+/cast [known:115098] Chi Wave
+/cast [known:123986] Chi Burst
+
 #showtooltip Keg Smash
-/startattack
-/cast Keg Smash
-```
-```
-#showtooltip Blackout Strike
-/startattack
-/cast Blackout Strike
-```
-```
-#showtooltip Breath of Fire
-/startattack
-/cast Breath of Fire
-```
+/startattack [harm,nodead]
+/cast [mod:shift] Weapons of Order; Keg Smash
 
-## Mistweaver
-
-## Windwalker
-```
 #showtooltip Rising Sun Kick
-/startattack
+/stopmacro [channeling:Fists of Fury]
+/stopmacro [channeling:Essence Font]
+/cast Thunder Focus Tea
 /cast Rising Sun Kick
-```
-```
+/use 13
+
+#showtooltip
+/cast [@focus,exists] Spear Hand Strike; Spear Hand Strike
+
+#showtooltip
+/cast [mod:shift,@cursor][@player][known:388686] Summon White Tiger Statue
+/cast [mod:shift,@cursor][@player][known:115313] Summon Jade Serpent Statue
+/cast [mod:shift,@cursor][@player][known:115315] Summon Black Ox Statue
+
+#showtooltip Tiger Palm
+/stopmacro [channeling:Essence Font]
+/startattack [harm,nodead]
+/cast [@mouseover,help,nodead,mod:shift][@target,help,nodead,mod:shift]Soothing Mist;[@player,mod:shift]Soothing Mist;[harm,nodead]Tiger Palm
+
+#showtooltip Blackout Kick
+/stopmacro [channeling:Essence Font]
+/startattack [harm,nodead]
+/cast [@mouseover,help,nodead,mod:shift][@target,help,nodead,mod:shift]Vivify;[@player,mod:shift]Vivify;[harm,nodead]Blackout Kick
+
+#showtooltip
+/cast [mod:shift,@cursor][@player] Exploding Keg
+
 #showtooltip Fists of Fury
 /startattack
+/use 13
 /cast Fists of Fury
-```
-```
-#showtooltip Strike of the Windlord
-/startattack
-/cast Strike of the Windlord
-```
-```
-#showtooltip Whirling Dragon Punch
-/startattack
-/cast Whirling Dragon Punch
-```
+
+#showtooltip
+/cast [@mouseover,exists,noharm,nodead][@target,exists,noharm,nodead][@player] Detox
+
+#showtooltip Enveloping Mist
+/stopmacro [channeling:Essence Font]
+/cast Mana Tea
+/cast [@mouseover, exists, noharm, nodead][@target, exists, noharm, nodead][] Enveloping Mist
+/use 13
+
+#showtooltip Life Cocoon
+/use 13
+/cast [@mouseover, exists, noharm, nodead][@target, exists, noharm, nodead][] Life Cocoon
+
+#showtooltip Renewing Mist
+/stopmacro [channeling:Essence Font]
+/cast Mana Tea
+/cast [@mouseover,exists,noharm,nodead][@target,exists,noharm,nodead][@player] Renewing Mist
+/use 13
+
+#showtooltip
+/cast [@player] Tiger's Lust
+
+#showtooltip
+/cast [mod:shift,@cursor][@player] Ring of Peace
+
