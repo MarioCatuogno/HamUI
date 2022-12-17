@@ -14,3 +14,4 @@ World of Warcraft custom UI
 
 * [Monk - Alerts](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/monk_alerts.txt)
 * [Monk - Buffs](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/monk_buffs.txt)
+* [Utilities](https://github.com/MarioCatuogno/HamUI/blob/master/WeakAuras/utilities.txt)
