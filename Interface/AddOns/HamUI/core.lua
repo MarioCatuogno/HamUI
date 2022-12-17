@@ -87,6 +87,11 @@ local ResourceBarPosition = CreateFrame("Frame")
 
 end)
 
+-- Hide Reputation/XP bar
+StatusTrackingBarManager:UnregisterAllEvents()
+StatusTrackingBarManager:SetScript("OnShow", function() StatusTrackingBarManager:Hide() end)
+StatusTrackingBarManager:Hide()
+
 --------------------------------------------------------------------------------
 -- TOOLTIPS
 --------------------------------------------------------------------------------
