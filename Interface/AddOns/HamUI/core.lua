@@ -252,8 +252,8 @@ C_CVar.SetCVar("lockActionBar", 1)
 -- Combat
 C_CVar.SetCVar("autoSelfCast", 1)
 C_CVar.SetCVar("floatingCombatTextCombatHealing", 1)
-C_CVar.SetCVar("floatingCombatTextCombatDamage", 1)
-C_CVar.SetCVar("floatingCombatTextCombatLogPeriodicSpells", 1)
+C_CVar.SetCVar("floatingCombatTextCombatDamage", 0)
+C_CVar.SetCVar("floatingCombatTextCombatLogPeriodicSpells", 0)
 C_CVar.SetCVar("floatingCombatTextPetMeleeDamage", 0)
 C_CVar.SetCVar("floatingCombatTextPetSpellDamage", 0)
 
