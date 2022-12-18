@@ -28,6 +28,13 @@ EventRegistry:RegisterCallback("PLAYER_REGEN_ENABLED", function()
   MonkHarmonyBarFrame:SetScript("OnShow", function() MonkStaggerBar:Hide() end)
 end)
 
+-- Hide GCD blik
+hooksecurefunc("CooldownFrame_Set", function(self, start, duration, enable, forceShowDrawEdge, modRate)
+	if enable and enable ~= 0 and start > 0 and duration <= 1.5 then
+		CooldownFrame_Clear(self)
+	end
+end)
+
 --------------------------------------------------------------------------------
 -- CHAT
 --------------------------------------------------------------------------------
