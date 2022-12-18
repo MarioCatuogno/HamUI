@@ -164,6 +164,19 @@ end
 -- RAID AND PARTY
 --------------------------------------------------------------------------------
 
+-- Hide Realm name from Raid frames
+hooksecurefunc("CompactUnitFrame_UpdateName",function(frame)
+  if frame and not frame:IsForbidden() then
+    local frame_name = frame:GetName()
+    if frame_name and frame_name:match("^CompactRaidFrame%d") and frame.unit and frame.name then
+      local unit_name = GetUnitName(frame.unit,true)
+      if unit_name then
+        frame.name:SetText(unit_name:match("[^-]+"))
+      end
+    end
+  end
+end)
+
 --------------------------------------------------------------------------------
 -- VARIOUS
 --------------------------------------------------------------------------------
