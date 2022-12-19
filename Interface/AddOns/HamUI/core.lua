@@ -101,6 +101,25 @@ TargetFrame.maxDebuffs = 5;
 TargetFrame.TargetFrameContent.TargetFrameContentMain.ReputationColor:SetTexture(nil)
 FocusFrame.TargetFrameContent.TargetFrameContentMain.ReputationColor:SetTexture(nil)
 
+---- Hide resource bar under Player Frame
+--local ResourceBarPosition = CreateFrame("Frame")
+--    ResourceBarPosition:RegisterEvent("PLAYER_LOGIN")
+--    ResourceBarPosition:RegisterEvent("PLAYER_ENTERING_WORLD")
+--
+--    ResourceBarPosition:SetScript("OnEvent", function(self, event, ...)
+--
+--        -- Monk Chi points bar
+--        MonkHarmonyBarFrame:ClearAllPoints()
+--        MonkHarmonyBarFrame:SetScale(1.0)
+--        MonkHarmonyBarFrame:SetPoint("CENTER",UIParent,"CENTER", 0, -190)
+--
+--        -- Monk Stagger bar
+--        MonkStaggerBar:ClearAllPoints()
+--        MonkStaggerBar:SetScale(1.1)
+--        MonkStaggerBar:SetPoint("CENTER",UIParent,"CENTER", 0, -170)
+--
+--end)
+
 -- Hide Reputation/XP bar
 StatusTrackingBarManager:UnregisterAllEvents()
 StatusTrackingBarManager:SetScript("OnShow", function() StatusTrackingBarManager:Hide() end)
@@ -190,6 +209,13 @@ hooksecurefunc("CompactUnitFrame_UpdateName",function(frame)
     end
   end
 end)
+
+-- Hide Objective Tracker while in Raid Boss encounter
+local HideQuestTracker = CreateFrame("Frame")
+HideQuestTracker:RegisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT")
+if event == "INSTANCE_ENCOUNTER_ENGAGE_UNIT" and instanceType == 'raid' then
+  ObjectiveTracker_Collapse()
+end
 
 --------------------------------------------------------------------------------
 -- VARIOUS
