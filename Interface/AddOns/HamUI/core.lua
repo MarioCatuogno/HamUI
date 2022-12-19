@@ -243,6 +243,9 @@ EJMicroButton:HookScript("OnShow",function(self) self:Hide() end)
 StoreMicroButton:Hide()
 StoreMicroButton:HookScript("OnShow",function(self) self:Hide() end)
 
+-- Hide UI errors
+UIErrorsFrame:Hide()
+
 --------------------------------------------------------------------------------
 -- VARIABLES
 --------------------------------------------------------------------------------
