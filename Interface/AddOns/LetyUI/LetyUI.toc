@@ -1,0 +1,7 @@
+## Interface: 100000
+## Title: |cff44ABDBLety|rUI
+## Notes: Enhanced Blizzard default UI
+## Version: 0.9.1
+## Author: Panzarotto
+
+core.lua
